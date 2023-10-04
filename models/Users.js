@@ -21,6 +21,11 @@ Users.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    users_password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      // add bitcryption here
+    }
   },
   {
     sequelize,

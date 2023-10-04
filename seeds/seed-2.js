@@ -1,32 +1,32 @@
-// const { Tag } = require('../models');
+const { Users } = require('../models');
 
-// const tagData = [
-//   {
-//     tag_name: 'rock music',
-//   },
-//   {
-//     tag_name: 'pop music',
-//   },
-//   {
-//     tag_name: 'blue',
-//   },
-//   {
-//     tag_name: 'red',
-//   },
-//   {
-//     tag_name: 'green',
-//   },
-//   {
-//     tag_name: 'white',
-//   },
-//   {
-//     tag_name: 'gold',
-//   },
-//   {
-//     tag_name: 'pop culture',
-//   },
-// ];
+const usersData = [
+  {
+    users_name: 'rock music',
+  },
+  {
+    users_name: 'pop music',
+  },
+  {
+    users_name: 'blue',
+  },
+  {
+    users_name: 'red',
+  },
+  {
+    users_name: 'green',
+  },
+  {
+    users_name: 'white',
+  },
+  {
+    users_name: 'gold',
+  },
+  {
+    users_name: 'pop culture',
+  },
+];
 
-// const seedTags = () => Tag.bulkCreate(tagData);
+const seeduserss = () => Users.bulkCreate(usersData);
 
-// module.exports = seedTags;
+module.exports = seeduserss;
