@@ -1,9 +1,9 @@
-const { ProductTag } = require('../models');
+const { reviews } = require('../models');
 
-const productTagData = [
+const reviewsTagData = [
   {
     product_id: 1,
-    tag_id: 6,
+    reviews_id: 6,
   },
   {
     product_id: 1,

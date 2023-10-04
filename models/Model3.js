@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection');
 
-class ProductTag extends Model {}
+class reviews extends Model {}
 
-ProductTag.init(
+reviews.init(
   {
     // Define columns
     id: {
@@ -37,4 +37,4 @@ ProductTag.init(
   }
 );
 
-module.exports = ProductTag;
+module.exports = reviews;
