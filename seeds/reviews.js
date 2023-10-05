@@ -1,54 +1,38 @@
-const { reviews, Reviews } = require('../models');
+const { Reviews } = require('../models');
 
+
+// ** NOTE ** Eventually we need to add the start value that the user will be able to input (1-5)
 const ReviewsData = [
   {
-    product_id: 1,
-    reviews_id: 6,
+    id: 1,
+    users_id: 1,
+    reviews_content: "testuser1 was the most helpful ever!",
   },
   {
-    product_id: 1,
-    tag_id: 7,
+    id: 2,
+    users_id: 1,
+    reviews_content: "testuser1 was literally the worst tutor datty ever!",
   },
   {
-    product_id: 1,
-    tag_id: 8,
+    id: 3,
+    users_id: 2,
+    reviews_content: "testuser2 was the most helpful ever!",
   },
   {
-    product_id: 2,
-    tag_id: 6,
+    id: 4,
+    users_id: 2,
+    reviews_content: "testuser2 was literally the worst tutor datty ever!",
   },
   {
-    product_id: 3,
-    tag_id: 1,
+    id: 5,
+    users_id: 3,
+    reviews_content: "testuser3 was the most helpful ever!",
   },
   {
-    product_id: 3,
-    tag_id: 3,
-  },
-  {
-    product_id: 3,
-    tag_id: 4,
-  },
-  {
-    product_id: 3,
-    tag_id: 5,
-  },
-  {
-    product_id: 4,
-    tag_id: 1,
-  },
-  {
-    product_id: 4,
-    tag_id: 2,
-  },
-  {
-    product_id: 4,
-    tag_id: 8,
-  },
-  {
-    product_id: 5,
-    tag_id: 3,
-  },
+    id: 6,
+    users_id: 3,
+    reviews_content: "testuser3 was literally the worst tutor datty ever!",
+  }
 ];
 
 const seedreviews = () => Reviews.bulkCreate(ReviewsData);
