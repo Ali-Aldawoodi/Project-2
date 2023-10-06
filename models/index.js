@@ -2,8 +2,8 @@
 const Users = require('./Users');
 const Reviews = require('./Reviews');
 
-// Users have many Reviews
-Users.hasMany(Reviews, {
+// Reviews belongsTo Users
+Reviews.belongsTo(Users, {
   foreignKey: 'reviews_id',
 });
 
