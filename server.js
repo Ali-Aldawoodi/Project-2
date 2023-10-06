@@ -1,11 +1,18 @@
 const express = require('express');
 const routes = require('./routes');
+require('dotenv').config();
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+// const { OpenAIApi } = require('openai');
+// const openai = new OpenAIApi({ key: process.env.API_KEY });
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Serve static files from the "public" directory
+app.use(express.static('public'));
 
 app.use(routes);
 
