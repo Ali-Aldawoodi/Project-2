@@ -17,10 +17,6 @@ Reviews.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    reviews_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     users_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -28,6 +24,10 @@ Reviews.init(
         key: 'id',
       },
     },
+    reviews_content: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    }
   },
   {
     sequelize,
