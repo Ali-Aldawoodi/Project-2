@@ -27,3 +27,32 @@ async function askQuestion(question) {
 
 // Example usage
 askQuestion('Translate "hello" to French');
+
+
+
+// Different code
+const axios = require('axios');
+
+// Define your OpenAI API key
+const apiKey = 'YOUR_OPENAI_API_KEY';
+
+// Define the content you want to generate using GPT-3.5 Turbo
+const prompt = 'Translate the following English text to French: "Hello, how are you?"';
+
+// Make an HTTP POST request to the OpenAI API
+axios.post('https://api.openai.com/v1/engines/gpt-3.5-turbo/completions', {
+  prompt,
+  max_tokens: 50, // Adjust the maximum number of tokens in the response
+}, {
+  headers: {
+    'Authorization': `Bearer ${apiKey}`,
+    'Content-Type': 'application/json',
+  },
+})
+.then(response => {
+  const generatedText = response.data.choices[0].text;
+  console.log('Generated Text:', generatedText);
+})
+.catch(error => {
+  console.error('Error:', error);
+});
