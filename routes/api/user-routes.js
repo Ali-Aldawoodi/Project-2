@@ -43,7 +43,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// POST/Create new category
+// POST/Create new User
 router.post('/', async (req, res) => {
   try {
     const userData = await Users.create(req.body);
