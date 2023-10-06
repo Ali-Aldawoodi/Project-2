@@ -28,19 +28,26 @@ router.get('/:id', async (req, res) => {
 });
 
 
-// ** COMING SOON **
 // POST/Create new review
-// router.post('/', async (req, res) => {
-//   try {
-//     // Create the review using Users model and req.body
-//     const reviewData = await Reviews.create(req.body);
-//     // Respond with the created review
-//     res.status(200).json(reviewData);
-//   } catch (err) {
-//     console.log(err);
-//     res.status(400).json(err);
-//   }
-// });
+router.post('/', async (req, res) => {
+  try {
+    const { users_id, reviews_content, poster_id } = req.body; // Destructure the data from the request body
+
+    // Create the review using Reviews model and the provided data
+    const reviewData = await Reviews.create({
+      users_id,
+      reviews_content,
+      poster_id,
+    });
+
+    // Respond with the created review
+    res.status(200).json(reviewData);
+  } catch (err) {
+    console.error(err);
+    res.status(400).json(err);
+  }
+});
+
 
 // // PUT/Update one product
 // router.put('/:id', async (req, res) => {
