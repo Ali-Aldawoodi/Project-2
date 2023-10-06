@@ -7,9 +7,9 @@ Reviews.belongsTo(Users, {
   foreignKey: 'reviews_id',
 });
 
-// Categories have many Users
-Users.hasMany(Reviews, {
-  foreignKey: 'users_id',
+// Reviews belongsTo Users
+Reviews.belongsTo(Users, {
+  foreignKey: 'users_id'
 });
 
 module.exports = {
