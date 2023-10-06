@@ -29,24 +29,13 @@ router.get('/:id', async (req, res) => {
 
 
 // ** COMING SOON **
-// // POST/Create new product
+// POST/Create new review
 // router.post('/', async (req, res) => {
 //   try {
-//     // Create the product using Product model and req.body
-//     const productData = await Product.create(req.body);
-//     if (req.body.tagIds) {
-//       // Create an array of product-tag associations
-//       const productTagIdArr = req.body.tagIds.map((tag_id) => {
-//         return {
-//           product_id: productData.id,
-//           tag_id,
-//         };
-//       });
-//       await ProductTag.bulkCreate(productTagIdArr);
-//     }
-
-//     // Respond with the created product
-//     res.status(200).json(productData);
+//     // Create the review using Users model and req.body
+//     const reviewData = await Reviews.create(req.body);
+//     // Respond with the created review
+//     res.status(200).json(reviewData);
 //   } catch (err) {
 //     console.log(err);
 //     res.status(400).json(err);
