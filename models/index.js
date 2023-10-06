@@ -2,7 +2,7 @@
 const Users = require('./Users');
 const Reviews = require('./Reviews');
 
-// Userss belongsTo Reviews
+// Reviews belongsTo Users
 Reviews.belongsTo(Users, {
   foreignKey: 'reviews_id',
 });
