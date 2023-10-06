@@ -1,42 +1,43 @@
-// const router = require('express').Router();
-// const { Product, Category, Tag, ProductTag } = require('../../models');
+const router = require('express').Router();
+const { Product, Category } = require('../../models');
 
-// // The `/api/products` endpoint
+// The `/api/products` endpoint
 
-// // GET all products
-// router.get('/', async (req, res) => {
-//   try {
-//     const productData = await Product.findAll({
-//       include: [
-//         { model: Category, attributes: ['id', 'category_name'] },
-//         { model: Tag, attributes: ['id', 'tag_name'] },
-//       ]
-//     });
-//     res.status(200).json(productData);
-//   } catch (err) {
-//     res.status(500).json(err)
-//   }
-// });
+// GET all products
+router.get('/', async (req, res) => {
+  try {
+    const productData = await Product.findAll({
+      include: [
+        { model: Category, attributes: ['id', 'category_name'] }
+      ]
+    });
+    res.status(200).json(productData);
+  } catch (err) {
+    res.status(500).json(err)
+  }
+});
 
-// // GET one product
-// router.get('/:id', async (req, res) => {
-//   try {
-//     const productData = await Product.findByPk(req.params.id, {
-//       include: [
-//         { model: Category, attributes: ['id', 'category_name'] },
-//         { model: Tag, attributes: ['id', 'tag_name'] },
-//       ]
-//     });
-//     if (!productData) {
-//       res.status(404).json({ message: 'No Product found with this id' });
-//       return;
-//     }
-//     res.status(200).json(productData);
-//   } catch (err) {
-//     res.status(500).json(err)
-//   }
-// });
+// GET one product
+router.get('/:id', async (req, res) => {
+  try {
+    const productData = await Product.findByPk(req.params.id, {
+      include: [
+        { model: Category, attributes: ['id', 'category_name'] },
+        { model: Tag, attributes: ['id', 'tag_name'] },
+      ]
+    });
+    if (!productData) {
+      res.status(404).json({ message: 'No Product found with this id' });
+      return;
+    }
+    res.status(200).json(productData);
+  } catch (err) {
+    res.status(500).json(err)
+  }
+});
 
+
+// ** COMING SOON **
 // // POST/Create new product
 // router.post('/', async (req, res) => {
 //   try {
@@ -107,6 +108,7 @@
 //   }
 // });
 
+// ** COMING SOON **
 // // DEL/Delete one Product
 // router.delete('/:id', async (req, res) => {
 //   try {

@@ -25,7 +25,7 @@ Reviews.init(
       },
     },
     reviews_content: {
-      types: DataTypes.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
     }
   },

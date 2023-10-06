@@ -25,7 +25,7 @@ app.listen(PORT, () => {
   // console.log('See the tag-routes in action at...');
   // console.log(`http://localhost:${PORT}/api/tags`)
   // console.log('-----------------------------------------------------------------------')
-  // console.log('luke was here')
+  console.log('luke was here')
 });
 
 // Dan is the best
