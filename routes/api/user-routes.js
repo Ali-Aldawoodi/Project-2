@@ -45,12 +45,12 @@ router.get('/:id', async (req, res) => {
 });
 
 // POST/Create new User
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const userData = await Users.create({
-      user_name: req.body.user_name,
+      users_name: req.body.users_name,
       // email: req.body.email,
-      password: req.body.password,
+      users_password: req.body.users_password,
       });
     res.status(200).json(userData);
   } catch (error) {
