@@ -4,29 +4,32 @@ const router = express.Router();
 const { OpenAI } = require('openai');
 
 // Create an instance of OpenAI using your API key (if you're using it)
-// const openai = new OpenAI({ key: process.env.API_KEY });
+const openai = new OpenAI({ apiKey: process.env.API_KEY });
 
 // Define the route to handle POST requests to '/chat/ask'
 router.post('/', async (req, res) => {
-  console.log("Received POST request to /chat/ask");
-  console.log("Request body:", req.body); // Log the request body
-  console.log("Testies");
   const { question } = req.body;
 
   try {
     // Use OpenAI to generate a response here if you're using it
-    // const response = await openai.createChatCompletion({ messages: [...] });
+    const messages = [
+      {
+        role: 'system',
+        content: 'You are a helpful assistant.'
+      },
+      {
+        role: 'user',
+        content: 'What is the answer to life, the universe, and everything?'
+      }
+    ];
     
-    // For testing, you can use a static response as mentioned earlier
-    const answer = "This is a static response for testing purposes";
-    
+    const response = await openai.chat.completions.create({ messages });
+
     res.json({ answer });
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
-
-  console.log("after testies");
 });
 
 module.exports = router;

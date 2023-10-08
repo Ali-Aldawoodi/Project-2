@@ -1,4 +1,4 @@
-const apiEndpoint = '/chat/ask'; // This should match your server route
+const apiEndpoint = '/api/chat'; // This should match your server route
 
 async function sendQuery() {
   const userInput = document.getElementById('userInput').value;
@@ -10,7 +10,17 @@ async function sendQuery() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        question: userInput,
+        model: 'text-davinci-002',
+        messages: [
+          {
+            role: 'system',
+            content: 'You are a helpful assistant.'
+          },
+          {
+            role: 'user',
+            content: userInput, // Use the user's input here
+          }
+        ],
       }),
     });
 
