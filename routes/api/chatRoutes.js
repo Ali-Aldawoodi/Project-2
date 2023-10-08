@@ -7,7 +7,7 @@ const { OpenAI } = require('openai');
 // const openai = new OpenAI({ key: process.env.API_KEY });
 
 // Define the route to handle POST requests to '/chat/ask'
-router.post('/chat/ask', async (req, res) => {
+router.post('/', async (req, res) => {
   console.log("Received POST request to /chat/ask");
   console.log("Request body:", req.body); // Log the request body
   console.log("Testies");
