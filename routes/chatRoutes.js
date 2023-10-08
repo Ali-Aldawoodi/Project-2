@@ -8,6 +8,8 @@ const { OpenAI } = require('openai');
 
 // Define the route to handle POST requests to '/chat/ask'
 router.post('/chat/ask', async (req, res) => {
+  console.log("Received POST request to /chat/ask");
+  console.log("Request body:", req.body); // Log the request body
   console.log("Testies");
   const { question } = req.body;
 
@@ -23,6 +25,8 @@ router.post('/chat/ask', async (req, res) => {
     console.error('Error:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
+
+  console.log("after testies");
 });
 
 module.exports = router;
