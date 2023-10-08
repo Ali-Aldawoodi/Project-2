@@ -1,66 +1,53 @@
 const router = require('express').Router();
-const { Product, Category } = require('../../models');
+const { Reviews } = require('../../models');
 
-// The `/api/products` endpoint
+// The `/api/reviews` endpoint
 
-// GET all products
+// GET all reviews
 router.get('/', async (req, res) => {
   try {
-    const productData = await Product.findAll({
-      include: [
-        { model: Category, attributes: ['id', 'category_name'] }
-      ]
-    });
-    res.status(200).json(productData);
+    const reviewData = await Reviews.findAll({});
+    res.status(200).json(reviewData);
   } catch (err) {
     res.status(500).json(err)
   }
 });
 
-// GET one product
+// GET one review
 router.get('/:id', async (req, res) => {
   try {
-    const productData = await Product.findByPk(req.params.id, {
-      include: [
-        { model: Category, attributes: ['id', 'category_name'] },
-        { model: Tag, attributes: ['id', 'tag_name'] },
-      ]
-    });
-    if (!productData) {
-      res.status(404).json({ message: 'No Product found with this id' });
+    const reviewData = await Reviews.findByPk(req.params.id, {    });
+    if (!reviewData) {
+      res.status(404).json({ message: 'No review found with this id' });
       return;
     }
-    res.status(200).json(productData);
+    res.status(200).json(reviewData);
   } catch (err) {
     res.status(500).json(err)
   }
 });
 
 
-// ** COMING SOON **
-// // POST/Create new product
-// router.post('/', async (req, res) => {
-//   try {
-//     // Create the product using Product model and req.body
-//     const productData = await Product.create(req.body);
-//     if (req.body.tagIds) {
-//       // Create an array of product-tag associations
-//       const productTagIdArr = req.body.tagIds.map((tag_id) => {
-//         return {
-//           product_id: productData.id,
-//           tag_id,
-//         };
-//       });
-//       await ProductTag.bulkCreate(productTagIdArr);
-//     }
+// POST/Create new review
+router.post('/', async (req, res) => {
+  try {
+    const { users_id, reviews_content, poster_id } = req.body; // Destructure the data from the request body
 
-//     // Respond with the created product
-//     res.status(200).json(productData);
-//   } catch (err) {
-//     console.log(err);
-//     res.status(400).json(err);
-//   }
-// });
+    // Create the review using Reviews model and the provided data
+    const reviewData = await Reviews.create({
+      users_id,
+      reviews_content,
+      poster_id,
+    });
+
+    // Respond with the created review
+    res.status(200).json(reviewData);
+  } catch (err) {
+    console.error(err);
+    res.status(400).json(err);
+  }
+});
+
 
 // // PUT/Update one product
 // router.put('/:id', async (req, res) => {
