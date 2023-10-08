@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Reviews } = require('../../models');
+const withAuth = require('../../utils/auth')
 
 // The `/api/reviews` endpoint
 
@@ -29,7 +30,7 @@ router.get('/:id', async (req, res) => {
 
 
 // POST/Create new review
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const { users_id, reviews_content, poster_id } = req.body; // Destructure the data from the request body
 
