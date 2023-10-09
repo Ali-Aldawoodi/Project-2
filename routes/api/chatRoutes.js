@@ -4,6 +4,7 @@ const key = process.env.API_KEY
 const express = require('express');
 const router = express.Router();
 const { OpenAI } = require('openai');
+const withAuth = require('../../utils/auth')
 
 // Create an instance of OpenAI using your API key (if you're using it)
 const openai = new OpenAI({ apiKey: process.env.API_KEY });
@@ -31,5 +32,4 @@ router.post('/', async (req, res) => {
     console.error('Error:', error);
   }
 });
-    
 module.exports = router;
