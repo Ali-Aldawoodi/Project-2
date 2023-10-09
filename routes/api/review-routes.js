@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Reviews } = require('../../models');
+const withAuth = require('../../utils/auth')
 
 // The `/api/reviews` endpoint
 
@@ -29,7 +30,7 @@ router.get('/:id', async (req, res) => {
 
 
 // POST/Create new review
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const { users_id, reviews_content, poster_id } = req.body; // Destructure the data from the request body
 
@@ -49,69 +50,45 @@ router.post('/', async (req, res) => {
 });
 
 
-// // PUT/Update one product
-// router.put('/:id', async (req, res) => {
-//   try {
-//     // Find the product by its ID
-//     const productData = await Product.findByPk(req.params.id);
+// // PUT/Update one review
+router.put('/:id', withAuth, async (req, res) => {
+  try {
+    // Find the review by its ID
+    const reviewData = await Review.findByPk(req.params.id);
 
-//     // Check if the tag exists
-//     if (!productData) {
-//       res.status(404).json({ message: 'No product found with this id' });
-//       return;
-//     }
+    // Check if the tag exists
+    if (!reviewData) {
+      res.status(404).json({ message: 'No review found with this id' });
+      return;
+    }
 
-//     // Update product data
-//     const updatedProduct = await productData.update(req.body);
+    // Update review data
+    const updatedReview = await reviewData.update(req.body);
 
-//     // Handle product tags
-//     if (req.body.tagIds && req.body.tagIds.length) {
-//       const currentProductTags = await ProductTag.findAll({
-//         where: { product_id: req.params.id },
-//       });
-
-//       const currentTagIds = currentProductTags.map(({ tag_id }) => tag_id);
-//       const newTagIds = req.body.tagIds.filter((tag_id) => !currentTagIds.includes(tag_id));
-//       const tagsToRemove = currentProductTags.filter(({ tag_id }) => !req.body.tagIds.includes(tag_id));
-
-//       // Remove tags that are no longer associated
-//       await ProductTag.destroy({ where: { id: tagsToRemove.map(({ id }) => id) } });
-
-//       // Add new tags
-//       const newProductTags = newTagIds.map((tag_id) => {
-//         return {
-//           product_id: req.params.id,
-//           tag_id,
-//         };
-//       });
-
-//       await ProductTag.bulkCreate(newProductTags);
-//     }
-
-//     res.status(200).json(updatedProduct);
-//   } catch (err) {
-//     console.log(err);
-//     res.status(400).json(err);
-//   }
-// });
+    res.status(200).json(updatedReview);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json(err);
+  }
+});
 
 // ** COMING SOON **
-// // DEL/Delete one Product
-// router.delete('/:id', async (req, res) => {
-//   try {
-//     const productData = await Product.destroy({
-//       where: {
-//         id: req.params.id,
-//       },
-//     });
-//     if (!productData) {
-//       res.status(404).json({ message: 'No Product with this id' });
-//       return;
-//     }
-//     res.status(200).json({ message: 'Category and associated products have been deleted' });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+// // DEL/Delete one Review
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    const reviewData = await Review.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (!reviewData) {
+      res.status(404).json({ message: 'No Review with this id' });
+      return;
+    }
+    res.status(200).json({ message: 'Category and associated reviews have been deleted' });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
