@@ -2,14 +2,14 @@
 const Users = require('./Users');
 const Reviews = require('./Reviews');
 
-// Userss belongsTo Reviews
-Users.belongsTo(Reviews, {
-  foreignKey: 'reviews_id',
+// Reviews belongsTo Users
+Reviews.belongsTo(Users, {
+  foreignKey: 'users_id',
 });
 
-// Categories have many Users
-Reviews.hasMany(Users, {
-  foreignKey: 'reviews_id',
+// Reviews hasMany Users
+Users.hasMany(Reviews, {
+  foreignKey: 'users_id'
 });
 
 module.exports = {

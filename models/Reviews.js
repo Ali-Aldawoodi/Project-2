@@ -13,11 +13,11 @@ Reviews.init(
     // Define columns
     id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
       autoIncrement: true,
+      primaryKey: true,
+      allowNull: false,
     },
-    users_id: {
+    users_id: { // user ID that the review is posted to
       type: DataTypes.INTEGER,
       references: {
         model: 'users',
@@ -27,6 +27,9 @@ Reviews.init(
     reviews_content: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    poster_id: { // user ID that posted the review
+      type: DataTypes.INTEGER,
     }
   },
   {

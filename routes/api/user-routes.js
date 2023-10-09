@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Users, Reviews } = require('../../models');
+const withAuth = require('../../utils/auth')
 
 // The `/api/users` endpoint
 
@@ -43,10 +44,14 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// POST/Create new category
+// POST/Create new User
 router.post('/', async (req, res) => {
   try {
-    const userData = await Users.create(req.body);
+    const userData = await Users.create({
+      users_name: req.body.users_name,
+      // email: req.body.email,
+      users_password: req.body.users_password,
+      });
     res.status(200).json(userData);
   } catch (error) {
     console.error(error);
@@ -56,51 +61,51 @@ router.post('/', async (req, res) => {
 
 
 // ** COMING SOON**
-// PUT/Update one category
-// router.put('/:id', async (req, res) => {
-//   try {
-//     const categoryToUpdate = await Category.findByPk(req.params.id);
-//     if (!categoryToUpdate) {
-//       res.status(404).json({ message: 'No category found with this id' });
-//       return;
-//     }
-//     await categoryToUpdate.update(req.body);
-//     res.status(200).json(categoryToUpdate);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(400).json(error);
-//   }
-// });
+// PUT/Update one User
+router.put('/:id', withAuth, async (req, res) => {
+  try {
+    const userToUpdate = await User.findByPk(req.params.id);
+    if (!userToUpdate) {
+      res.status(404).json({ message: 'No user found with this id' });
+      return;
+    }
+    await userToUpdate.update(req.body);
+    res.status(200).json(userToUpdate);
+  } catch (error) {
+    console.error(error);
+    res.status(400).json(error);
+  }
+});
 
 
 // ** COMING SOON **
-// DEL/Delete one category
-// router.delete('/:id', async (req, res) => {
-//   try {
-//     const categoryId = req.params.id;
-//     const categoryToDelete = await Category.findByPk(categoryId);
-//     if (!categoryToDelete) {
-//       res.status(404).json({ message: 'No category found with this id' });
-//       return;
-//     }
+// DEL/Delete one user
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const userToDelete = await User.findByPk(userId);
+    if (!userToDelete) {
+      res.status(404).json({ message: 'No User found with this id' });
+      return;
+    }
 
-//     // Find products associated with the category, and disassociate them from the from the category for safe deletion
-//     const associatedProducts = await Product.findAll({
-//       where: {
-//         category_id: categoryId,
-//       },
-//     });
-//     for (const product of associatedProducts) {
-//       product.category_id = null;
-//       await product.save();
-//     }
-//     await categoryToDelete.destroy();
-//     res.status(200).json({ message: 'Category and associated products have been deleted' });
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json(error);
-//   }
-// });
+    // Find reviews associated with the User, and disassociate them from the from the user for safe deletion
+    const associatedReviews = await Reviews.findAll({
+      where: {
+        category_id: userId,
+      },
+    });
+    for (const review of associatedReviews) {
+      review.category_id = null;
+      await review.save();
+    }
+    await userToDelete.destroy();
+    res.status(200).json({ message: 'User and associated Reviews have been deleted' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json(error);
+  }
+});
 
 
 module.exports = router;
