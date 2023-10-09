@@ -7,21 +7,14 @@ async function sendQuery() {
     const response = await fetch(apiEndpoint, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        Authorization: process.env.API_KEY,
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: 'text-davinci-002',
-        messages: [
-          {
-            role: 'system',
-            content: 'You are a helpful assistant.'
-          },
-          {
-            role: 'user',
-            content: userInput, // Use the user's input here
-          }
-        ],
-      }),
+        model: "text-davinci-002",
+        prompt: "hello",
+        max_tokens: 7
+      })
     });
 
     if (!response.ok) {
@@ -29,7 +22,9 @@ async function sendQuery() {
     }
 
     const data = await response.json();
-    const answer = data.answer;
+    console.log("--------------------");
+    console.log(data);
+    console.log("--------------------");
 
     // Display the response
     document.getElementById('response').textContent = answer;

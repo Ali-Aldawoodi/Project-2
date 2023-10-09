@@ -1,3 +1,5 @@
+const key = process.env.API_KEY
+
 // Import required modules and initialize OpenAI (if you're using it)
 const express = require('express');
 const router = express.Router();
@@ -8,28 +10,26 @@ const openai = new OpenAI({ apiKey: process.env.API_KEY });
 
 // Define the route to handle POST requests to '/chat/ask'
 router.post('/', async (req, res) => {
-  const { question } = req.body;
-
   try {
-    // Use OpenAI to generate a response here if you're using it
-    const messages = [
-      {
-        role: 'system',
-        content: 'You are a helpful assistant.'
+    const response = await fetch("https://api.openai.com/v1/completions", {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${key}`,
+        "Content-Type": "application/json"
       },
-      {
-        role: 'user',
-        content: 'What is the answer to life, the universe, and everything?'
-      }
-    ];
-    
-    const response = await openai.chat.completions.create({ messages });
+      body: JSON.stringify({
+        model: "text-ada-001",
+        prompt: "what's you name?",
+        max_tokens: 7
+      })
+    });
 
-    res.json({ answer });
+    const data = await response.json();
+    console.log(data.choices[0]);
+
   } catch (error) {
     console.error('Error:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
-
+    
 module.exports = router;
