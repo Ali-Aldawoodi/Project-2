@@ -21,7 +21,6 @@ const openai = new OpenAI({ apiKey: process.env.API_KEY });
 const sess = {
   secret: 'Super secret secret',
   cookie: {
-    maxAge: 300000,
     httpOnly: true,
     secure: false,
     sameSite: 'strict',
