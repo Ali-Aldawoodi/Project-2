@@ -1,8 +1,8 @@
 <div>
     <ul class="review-card">
         {{!-- listing the values of tutors rating, users name, content, and date entered --}}
-        {{#each reviews}}
-        <li>{{this.tutors.rating}} - {{this.reviews_content}}</li>
+        {{#each reviews as |reviews|}}
+        <li>{{this.reviews_content}} </li>
         {{/each}}
     </ul>
 </div>
