@@ -7,17 +7,103 @@
     <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
+    <style>
+    body {
+    background-color: rgb(85, 141, 141);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav h1 {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 35px;
+    color: rgb(13, 22, 22);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: darkslategray;
+}
+.btn{
+    background-color: rgb(78, 54, 24);
+    padding: 15px;
+    color: rgb(78, 190, 190);
+}
+.rightnav {
+    padding: 15px;
+    color: rgb(78, 190, 190);
+    margin: 7px;
+}
+
+#homepage {
+    display: flex;
+    justify-content: space-between;
+}
+
+#homepage img{
+    margin: 2.5%;
+}
+
+#leftside p {
+    margin: 0 0 5% 0;
+    text-align: center;
+}
+
+#leftside {
+    width: 50%;
+}
+
+#login-signup {
+    display: flex;
+    justify-content: space-around;
+    min-width: 50%;
+    margin-top: 10%;
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    background-color: darkslategray;
+    padding: 5%;
+    margin-bottom: 20%;
+}
+
+#login label {
+    margin: 4px 9px 4px 0;
+}
+#login input {
+    margin: 4px 9px 4px 0;
+    padding: 5px;
+}
+#signup label {
+    margin: 4px 9px 4px 0;
+}
+#signup input {
+    margin: 4px 9px 4px 0;
+    padding: 5px;
+}
+
+#signup {
+    display: flex;
+    flex-direction: column;
+    background-color: darkslategray;
+    padding: 5%;
+    margin-bottom: 20%;
+}
+</style>
     <nav>
         <h1>Tutor Datty</h1>
-        <input id= "tutors" type="button" value="Tutors">
-        <input id= "reviews" type="button" value="Reviews">
-        <input id= "make-review" type="button" value="Make a Review">
-        <input id="searchbar" type="text" value="Search Tutor Name">
-        <input id="search-btn" type="button" value="Submit">
-        <input id="login-btn" type="button" value="Login">
-        <input id="logout-btn" type="button" value="Logout">
+        <div id="rightnav">
+            <input class="btn rightnav" id="tutors" type="button" value="Tutors">
+            <input class="btn rightnav" id="reviews" type="button" value="Reviews">
+            <input class="btn rightnav" id="make-review" type="button" value="Make a Review">
+            <input class="rightnav" id="searchbar" type="text" placeholder="Search tutor here">
+            <input class="btn rightnav" id="search-btn" type="button" value="Submit">
+            <input class="btn rightnav" id="login-btn" type="button" value="Login">
+            <input class="btn rightnav" id="logout-btn" type="button" value="Logout">
+        </div>
     </nav>
     {{{body}}}
 </body>
-<script src="handlebars.js"></script>
 </html>
