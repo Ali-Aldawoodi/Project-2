@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-md-6">
+        <h2>Reviews</h2>
+        <section>
+            <div class="SortBy col-md-12">
+
+            </div>
+            <ul class="Assessment">
+            {{#each Reviews}}
+            <li>{{this.rating}} - {{this.reviews_content}} - {{this.date}}</li>
+            {{/each}}
+            </ul>
+        </section>
+    </div>
+</div>
+
+<script src="../seeds/reviews.js"></script>
