@@ -4,7 +4,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./routes');
 const helpers = require('./utils/helpers');
-require('dotenv').config();
+
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -47,6 +47,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 // sync sequelize models to the database, then turn on the server
-app.listen(PORT, () => {
-  console.log(`Server listening at http://localhost:${PORT}`)
-});
+sequelize.sync({force: false}).then(() => {
+  app.listen(PORT, () => {
+    console.log(`Server listening at http://localhost:${PORT}`)
+  });
+})
