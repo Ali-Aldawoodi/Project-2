@@ -1,3 +1,4 @@
+const seedTutors = require('./tutors.js')
 const seedUsers = require('./users.js');
 const seedReviews = require('./reviews.js');
 
@@ -6,6 +7,9 @@ const sequelize = require('../config/connection');
 const seedAll = async () => {
   await sequelize.sync({ force: true });
   console.log('\n----- DATABASE SYNCED -----\n');
+
+  await seedTutors();
+  console.log('\n----- TUTORS SEEDED -----\n')
 
   await seedUsers();
   console.log('\n----- USERS SEEDED -----\n');
