@@ -1,4 +1,31 @@
-<div class="row">
+<section id="homepage">
+  <img src="./images/cant-help.jpg" alt="unhelpful" width="30%">
+  <p>No one should have to be unsure if their tutor will actually help. Here is a place to hang out and gossip about
+    your tutorial experiences.</p>
+</section>
+<section id="login-signup">
+  <form id="login" method="get" action="/api/users">
+    <h2>Sign in</h2>
+    <label for="username-login">Username</label>
+    <input type="text" id="username-login" name="username-login">
+    <label for="password-login">Password</label>
+    <input type="text" id="password-login" name="password-login">
+    <input type="submit">
+  </form>
+  <form id="signup" method="post" action="/api/users">
+    <h2>Sign up</h2>
+    <label for="username-signup">Username</label>
+    <input type="text" id="username-signup" name="username-signup">
+    <label for="password-signup">Password</label>
+    <input type="text" id="password-signup" name="password-signup">
+    <label for="confirm-password">Confirm Password</label>
+    <input type="text" id="confirm-password" name="confirm-password">
+    <input type="submit">
+  </form>
+</section>
+
+
+{{!-- <div class="row">
   <div class="col-md-6">
     <h2>Login</h2>
     <form class="form login-form">
@@ -16,7 +43,7 @@
     </form>
   </div>
   <div class="col-md-6">
-    
+
     <h2>Signup</h2>
     <form class="form signup-form">
       <div class="form-group">
@@ -32,6 +59,6 @@
       </div>
     </form>
   </div>
-</div>
+</div> --}}
 
-<script src="./js/login.js"></script>
+<script src="/js/login.js"></script>
