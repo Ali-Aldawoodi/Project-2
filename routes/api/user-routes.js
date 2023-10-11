@@ -18,6 +18,7 @@ router.get('/', async (req, res) => {
     res.status(200).json(userData);
   } catch (error) {
     console.error(error);
+    console.log("cuatro");
     res.status(500).json(error);
   }
 });
@@ -40,17 +41,18 @@ router.get('/:id', async (req, res) => {
     res.status(200).json(userData);
   } catch (error) {
     console.error(error);
+    console.log("cinco");
     res.status(500).json(error);
   }
 });
 
 // POST/Create new User
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const userData = await Users.create({
-      user_name: req.body.user_name,
+      users_name: req.body.users_name,
       // email: req.body.email,
-      password: req.body.password,
+      users_password: req.body.users_password,
       });
     res.status(200).json(userData);
   } catch (error) {
@@ -64,7 +66,7 @@ router.post('/', withAuth, async (req, res) => {
 // PUT/Update one User
 router.put('/:id', withAuth, async (req, res) => {
   try {
-    const userToUpdate = await User.findByPk(req.params.id);
+    const userToUpdate = await Users.findByPk(req.params.id);
     if (!userToUpdate) {
       res.status(404).json({ message: 'No user found with this id' });
       return;
@@ -83,7 +85,7 @@ router.put('/:id', withAuth, async (req, res) => {
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const userId = req.params.id;
-    const userToDelete = await User.findByPk(userId);
+    const userToDelete = await Users.findByPk(userId);
     if (!userToDelete) {
       res.status(404).json({ message: 'No User found with this id' });
       return;
@@ -103,9 +105,54 @@ router.delete('/:id', withAuth, async (req, res) => {
     res.status(200).json({ message: 'User and associated Reviews have been deleted' });
   } catch (error) {
     console.error(error);
+    console.log("seis");
     res.status(500).json(error);
   }
 });
 
+// Added Login and Logout routes 
+router.post('/login', async (req, res) => {
+  try {
+    const userData = await Users.findOne({ where: { username: req.body.username } });
+
+    if (!userData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect username or password, please try again' });
+      return;
+    }
+
+    const validPassword = userData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect username or password, please try again' });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.loggedIn = true;
+      
+      res.json({ user: userData, message: 'You are now logged in!' });
+    });
+
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.post('/logout', (req, res) => {
+  console.log('log out route');
+
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
 
 module.exports = router;
