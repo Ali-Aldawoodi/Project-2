@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <h1>Tutor Datty</h1>
+        <div id="rightnav">
+            <input class="btn rightnav" id="tutors" type="button" value="Tutors">
+            <input class="btn rightnav" id="reviews" type="button" value="Reviews">
+            <input class="btn rightnav" id="make-review" type="button" value="Make a Review">
+            <input class="rightnav" id="searchbar" type="text" placeholder="Search tutor here">
+            <input class="btn rightnav" id="search-btn" type="button" value="Submit">
+            <input class="btn rightnav" id="login-btn" type="button" value="Login">
+            <input class="btn rightnav" id="logout-btn" type="button" value="Logout">
+        </div>
+    </nav>
+    <section id="homepage">
+        <section id="leftside">
+            <img src="../public/images/cant-help.jpg" alt="unhelpful" width="95%">
+            <p>No one should have to be unsure if their tutor will actually help. Here is a place to hang out and gossip
+                about your tutorial experiences.</p>
+        </section>
+        <section id="login-signup">
+            <form id="login" method="get" action="/api/users">
+                <h2>Sign in</h2>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username">
+                <label for="password">Password</label>
+                <input type="text" id="password" name="password">
+                <input class="btn" type="submit" value="Sign in">
+            </form>
+            <form id="signup" method="post" action="/api/users">
+                <h2>Sign up</h2>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username">
+                <label for="password">Password</label>
+                <input type="text" id="password" name="password">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="text" id="confirm-password" name="confirm-password">
+                <input class="btn" type="submit" value="Sign up !">
+            </form>
+        </section>
+    </section>
+</body>
+
+</html>
