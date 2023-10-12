@@ -24,7 +24,6 @@
     "express-session": "^1.17.3",
     "heroku": "^8.5.0",
     "mysql2": "^2.1.0",
-    "openai": "^4.11.1",
     "sequelize": "^6.3.5"
   }
 }

@@ -14,9 +14,6 @@ const app = express();
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });
 
-const { OpenAI } = require('openai');
-const openai = new OpenAI({ apiKey: process.env.API_KEY });
-
 const sess = {
   secret: 'Super secret secret',
   cookie: {
@@ -48,6 +45,6 @@ app.use(routes);
 // sync sequelize models to the database, then turn on the server
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
-    console.log(`Server listening at http://localhost:${PORT}`)
+    console.log(`Server listening at https://localhost:${PORT}`)
   });
 })
