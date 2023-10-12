@@ -8,7 +8,6 @@
 // ChatGPT's answer comes back as the "responseData" in /public/js/chat.js
 // This "responseData" needs to be posted in the chat.handlebars "chatGPT-answer"
 // 
-document.location.replace('/chat');
 const key = process.env.API_KEY
 
 // Import required modules and initialize OpenAI (if you're using it)
