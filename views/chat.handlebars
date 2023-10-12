@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>ChatGPT-3.5 Turbo</title>
-    </head>
+</head>
+
 <body>
     <h1>ChatGPT-3.5 Turbo</h1>
     <input type="text" id="userInput" placeholder="Ask a question...">
     <button onclick="sendQuery()">Ask</button>
-    
+
     <!-- Display the response using Handlebars template -->
     <div id="response">
         {{#if response}}
-            <p>{{response}}</p>
+        <p>{{response}}</p>
         {{/if}}
     </div>
-    
+
     <script src="/js/chatgpt.js"></script>
 </body>
+
 </html>
