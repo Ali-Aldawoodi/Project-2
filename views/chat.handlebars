@@ -5,13 +5,17 @@
         </div>
 
         <div>
-            <label for="user-query">What's your question?</label>
-            <input type="text" id="user-query" />
+            <label for="user-query">{{chatUsername}}</label>
+            <input type="text" id="user-query" placeholder="Enter your question" data-user-query />
         </div>
 
         <div>
             <label for="chatGPT-answer">ChatGPT</label>
-            <input type="text" id="chatGPT-answer" readonly /> <!-- Use readonly to prevent user input -->
+            <div id="chatGPT-answer">
+                {{#if responseData}}
+                    <p>{{responseData.choices.[0].text}}</p>
+                {{/if}}
+            </div>
         </div>
 
         <div>
