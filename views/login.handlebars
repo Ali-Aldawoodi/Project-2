@@ -1,29 +1,29 @@
 {{!-- login page --}}
-    <section id="homepage">
-        <section id="leftside">
-            <img src="/images/cant-help.jpg" alt="unhelpful" width="95%">
-            <p>No one should have to be unsure if their tutor will actually help. Here is a place to hang out and gossip
-                about your tutorial experiences.</p>
-        </section>
-        <section id="login-signup">
-            <form id="login" method="get" action="/api/users">
-                <h2>Sign in</h2>
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username">
-                <label for="password">Password</label>
-                <input type="text" id="password" name="password">
-                <input class="btn" type="submit" value="Sign in">
-            </form>
-            <form id="signup" method="post" action="/api/users">
-                <h2>Sign up</h2>
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username">
-                <label for="password">Password</label>
-                <input type="text" id="password" name="password">
-                <label for="confirm-password">Confirm Password</label>
-                <input type="text" id="confirm-password" name="confirm-password">
-                <input class="btn" type="submit" value="Sign up !">
-            </form>
-        </section>
-    <script src="/js/login.js"></script>
+<section id="homepage">
+    <section id="leftside">
+        <img src="/images/cant-help.jpg" alt="unhelpful" width="95%">
+        <p>No one should have to be unsure if their tutor will actually help. Here is a place to hang out and gossip
+            about your tutorial experiences.</p>
     </section>
+    <section id="login-signup">
+        <form id="login" method="get" action="/api/users">
+            <h2>Sign in</h2>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username">
+            <label for="password">Password</label>
+            <input type="text" id="password" name="password">
+            <input class="btn" type="submit" value="Sign in">
+        </form>
+        <form id="signup" method="post" action="/api/users">
+            <h2>Sign up</h2>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username">
+            <label for="password">Password</label>
+            <input type="text" id="password" name="password">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="text" id="confirm-password" name="confirm-password">
+            <input class="btn" type="submit" value="Sign up !">
+        </form>
+    </section>
+    <script src="/js/login.js"></script>
+</section>
