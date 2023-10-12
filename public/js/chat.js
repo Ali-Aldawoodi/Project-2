@@ -20,21 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Send a POST request to your server-side OpenAI proxy endpoint
     const response = await fetch("/chat/openai-proxy", {
-// 
-const key = process.env.API_KEY
-
-// Import required modules and initialize OpenAI (if you're using it)
-const express = require('express');
-const router = express.Router();
-const { OpenAI } = require('openai');
-
-// Create an instance of OpenAI using your API key (if you're using it)
-const openai = new OpenAI({ apiKey: process.env.API_KEY });
-
-// Define the route to handle POST requests to '/chat'
-router.post('/', async (req, res) => {
-  try {
-    const response = await fetch("https://api.openai.com/v1/completions", {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
