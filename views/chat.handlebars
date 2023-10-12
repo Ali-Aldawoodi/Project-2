@@ -1,3 +1,34 @@
+{{!-- {{#if loggedIn}} --}}
+<div class="column">
+    <form class="chat-form" id="chat-form">
+        <div>
+            <h3>ChatGPT</h3>
+        </div>
+
+        <div>
+            <label for="user-query">What's your question?</label>
+            <input type="text" id="user-query" />
+        </div>
+
+        <div>
+            <label for="chatGPT-answer">ChatGPT</label>
+            <input type="text" id="chatGPT-answer" readonly /> <!-- Use readonly to prevent user input -->
+        </div>
+
+        <div>
+            <button type="submit" class="button" id="submit-btn">Submit</button>
+        </div>
+
+    </form>
+</div>
+{{!-- {{/if}} --}}
+
+{{!-- {{#if loggedIn}} --}}
+<!-- javascript file-->
+<script src="/js/chat.js"></script>
+{{!-- {{/if}} --}}
+
+{{!--
 <!DOCTYPE html>
 <html>
 
