@@ -1,20 +1,54 @@
+{{!-- {{#if loggedIn}} --}}
+<div class="column">
+    <form class="chat-form" id="chat-form">
+        <div>
+            <h3>ChatGPT</h3>
+        </div>
+
+        <div>
+            <label for="user-query">What's your question?</label>
+            <input type="text" id="user-query" />
+        </div>
+
+        <div>
+            <label for="chatGPT-answer">ChatGPT</label>
+            <input type="text" id="chatGPT-answer" readonly /> <!-- Use readonly to prevent user input -->
+        </div>
+
+        <div>
+            <button type="submit" class="button" id="submit-btn">Submit</button>
+        </div>
+
+    </form>
+</div>
+{{!-- {{/if}} --}}
+
+{{!-- {{#if loggedIn}} --}}
+<!-- javascript file-->
+<script src="/js/chat.js"></script>
+{{!-- {{/if}} --}}
+
+{{!--
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>ChatGPT-3.5 Turbo</title>
-    </head>
+</head>
+
 <body>
     <h1>ChatGPT-3.5 Turbo</h1>
     <input type="text" id="userInput" placeholder="Ask a question...">
     <button onclick="sendQuery()">Ask</button>
-    
+
     <!-- Display the response using Handlebars template -->
     <div id="response">
         {{#if response}}
-            <p>{{response}}</p>
+        <p>{{response}}</p>
         {{/if}}
     </div>
-    
-    <script src="/js/chatgpt.js"></script>
+
+    <script src="/js/chat.js"></script>
 </body>
-</html>
+
+</html> --}}

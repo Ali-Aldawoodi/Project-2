@@ -1,97 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tutor Datty</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
     <style>
-    body {
-    background-color: rgb(85, 141, 141);
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+        body {
+            background-color: rgb(85, 141, 141);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-nav h1 {
-    margin-left: 10px;
-    margin-right: 10px;
-    font-size: 35px;
-    color: rgb(13, 22, 22);
-}
+        nav h1 {
+            margin-left: 10px;
+            margin-right: 10px;
+            font-size: 35px;
+            color: rgb(13, 22, 22);
+        }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    background-color: darkslategray;
-}
-.btn{
-    background-color: rgb(78, 54, 24);
-    padding: 15px;
-    color: rgb(78, 190, 190);
-}
-.rightnav {
-    padding: 15px;
-    color: rgb(78, 190, 190);
-    margin: 7px;
-}
+        nav {
+            display: flex;
+            justify-content: space-between;
+            background-color: darkslategray;
+        }
 
-#homepage {
-    display: flex;
-    justify-content: space-between;
-}
+        .btn {
+            background-color: rgb(78, 54, 24);
+            padding: 15px;
+            color: rgb(78, 190, 190);
+        }
 
-#homepage img{
-    margin: 2.5%;
-}
+        .rightnav {
+            padding: 15px;
+            color: rgb(78, 190, 190);
+            margin: 7px;
+        }
 
-#leftside p {
-    margin: 0 0 5% 0;
-    text-align: center;
-}
+        #homepage {
+            display: flex;
+            justify-content: space-between;
+        }
 
-#leftside {
-    width: 50%;
-}
+        #homepage img {
+            margin: 2.5%;
+        }
 
-#login-signup {
-    display: flex;
-    justify-content: space-around;
-    min-width: 50%;
-    margin-top: 10%;
-}
+        #leftside p {
+            margin: 0 0 5% 0;
+            text-align: center;
+        }
 
-#login {
-    display: flex;
-    flex-direction: column;
-    background-color: darkslategray;
-    padding: 5%;
-    margin-bottom: 20%;
-}
+        #leftside {
+            width: 50%;
+        }
 
-#login label {
-    margin: 4px 9px 4px 0;
-}
-#login input {
-    margin: 4px 9px 4px 0;
-    padding: 5px;
-}
-#signup label {
-    margin: 4px 9px 4px 0;
-}
-#signup input {
-    margin: 4px 9px 4px 0;
-    padding: 5px;
-}
+        #login-signup {
+            display: flex;
+            justify-content: space-around;
+            min-width: 50%;
+            margin-top: 10%;
+        }
 
-#signup {
-    display: flex;
-    flex-direction: column;
-    background-color: darkslategray;
-    padding: 5%;
-    margin-bottom: 20%;
-}
-</style>
+        #login {
+            display: flex;
+            flex-direction: column;
+            background-color: darkslategray;
+            padding: 5%;
+            margin-bottom: 20%;
+        }
+
+        #login label {
+            margin: 4px 9px 4px 0;
+        }
+
+        #login input {
+            margin: 4px 9px 4px 0;
+            padding: 5px;
+        }
+
+        #signup label {
+            margin: 4px 9px 4px 0;
+        }
+
+        #signup input {
+            margin: 4px 9px 4px 0;
+            padding: 5px;
+        }
+
+        #signup {
+            display: flex;
+            flex-direction: column;
+            background-color: darkslategray;
+            padding: 5%;
+            margin-bottom: 20%;
+        }
+    </style>
     <nav>
         <h1>Tutor Datty</h1>
         <div id="rightnav">
@@ -102,8 +109,14 @@ nav {
             <input class="btn rightnav" id="search-btn" type="button" value="Submit">
             <input class="btn rightnav" id="login-btn" type="button" value="Login">
             <input class="btn rightnav" id="logout-btn" type="button" value="Logout">
+            <input class="btn rightnav chat-button" id="chat-btn" type="button" value="ChatGPT">
         </div>
     </nav>
-    {{{body}}}
+
+    <main>
+        {{{body}}}
+    </main>
+
 </body>
+
 </html>
