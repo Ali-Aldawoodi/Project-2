@@ -82,4 +82,8 @@ nav {
     margin-bottom: 20%;
 }
 
-
+#chatGPT-answer {
+    padding-left: 0px;
+    margin-left: 100px;
+    background-color: white;
+}
