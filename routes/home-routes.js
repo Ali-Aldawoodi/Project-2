@@ -17,30 +17,18 @@ router.get('/', async (req, res) => {
     });
     
     const tutors = tutorData.map((tutor) => tutor.get({ plain: true }));
+    
+    const ReviewData = await Reviews.findAll({
+      attributes: ['reviews_content']
+      });
   
+      const reviews = ReviewData.map((review) => review.get({ plain: true }));
+      
     res.render('homepage', {
         tutors,
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
-
-router.get('/', async (req, res) => {
-
-  try {
-
-    const ReviewData = await Reviews.findAll({
-    attributes: ['reviews_content']
-    });
-
-    const reviews = ReviewData.map((review) => review.get({ plain: true }));
-
-    res.render('homepage', {
         reviews,
     });
+
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
