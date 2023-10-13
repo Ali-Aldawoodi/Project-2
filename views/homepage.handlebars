@@ -7,7 +7,17 @@
 
     <script src="./js/login.js"></script>
 </section>
-
+<div>
+    <h2>Reviews</h2>
+    <ul class="review-card">
+        {{!-- listing the values of content (tutors rating, users name, and date entered will added at a later time)
+        --}}
+        {{#each reviews as |reviews|}}
+        <li>{{this.reviews_content}} </li>
+        {{/each}}
+    </ul>
+    <script src="./js/login.js"></script>
+</div>
 
 {{!-- We need to render the reviews and tutors in our routes in order that I can do the above. --}}
 =======
