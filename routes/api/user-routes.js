@@ -110,18 +110,17 @@ router.delete('/:id', withAuth, async (req, res) => {
 // Added Login and Logout routes 
 router.post('/login', async (req, res) => {
   try {
-    const userData = await Users.findOne({ where: { username: req.body.username } });
-
+    const userData = await Users.findOne({ where: { users_name: req.body.username } });
     if (!userData) {
       return res.status(400).json({ message: 'Incorrect username or password, please try again' });
     }
-
+    
     const validPassword = await userData.checkPassword(req.body.password);
-
+    
     if (!validPassword) {
       return res.status(400).json({ message: 'Incorrect username or password, please try again' });
     }
-
+    
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.loggedIn = true;
