@@ -6,4 +6,8 @@
         <li>{{this.reviews_content}} </li>
         {{/each}}
     </ul>
-</div>
+</div><ul class="review-card">
+    {{#each reviews as |review|}}
+    <li>{{review.reviews_content}}</li>
+    {{/each}}
+</ul>
