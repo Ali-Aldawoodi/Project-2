@@ -9,31 +9,43 @@ router.get('/homepage', (req, res) => {
 
 
 router.get('/', async (req, res) => {
- 
+
   try {
- 
+
     const tutorData = await Tutors.findAll({
-    attributes: ['tutors_name']
+      attributes: ['tutors_name']
     });
-    
+
     const tutors = tutorData.map((tutor) => tutor.get({ plain: true }));
-    
-    const ReviewData = await Reviews.findAll({
-      attributes: ['reviews_content']
+
+
+    try {
+
+      const reviewData = await Reviews.findAll({
+        attributes: ['reviews_content']
       });
-  
-      const reviews = ReviewData.map((review) => review.get({ plain: true }));
-      
-    res.render('homepage', {
+
+      const reviews = reviewData.map((review) => review.get({ plain: true }));
+      res.render('homepage', {
         tutors,
         reviews,
-    });
+      });
+
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
 
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
+
+
 });
+
+
+
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
@@ -48,7 +60,7 @@ router.get('/login', (req, res) => {
 router.get('/chat', (req, res) => {
   console.log(req.session.user_id);
   const chatUsername = req.session.user_id;
-  res.render('chat', {chatUsername});
+  res.render('chat', { chatUsername });
 })
 
 
