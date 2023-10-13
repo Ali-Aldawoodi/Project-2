@@ -36,7 +36,7 @@ router.get('/', async (req, res) => {
     attributes: ['reviews_content']
     });
 
-    const reviews = ReviewData.map((reviews) => reviews.get({ plain: true }));
+    const reviews = ReviewData.map((review) => review.get({ plain: true }));
 
     res.render('homepage', {
         reviews,
