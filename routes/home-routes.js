@@ -9,44 +9,42 @@ router.get('/homepage', (req, res) => {
 
 
 router.get('/', async (req, res) => {
- 
+
   try {
- 
+
     const tutorData = await Tutors.findAll({
-    attributes: ['tutors_name']
+      attributes: ['tutors_name']
     });
-    
+
     const tutors = tutorData.map((tutor) => tutor.get({ plain: true }));
-  
-    res.render('homepage', {
+
+
+    try {
+
+      const reviewData = await Reviews.findAll({
+        attributes: ['reviews_content']
+      });
+
+      const reviews = reviewData.map((review) => review.get({ plain: true }));
+      res.render('homepage', {
         tutors,
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
-// localhost:3001/
-
-router.get('/reviews', async (req, res) => {
-
-  try {
-
-    const reviewData = await Reviews.findAll({
-    attributes: ['reviews_content']
-    });
-
-    const reviews = reviewData.map((review) => review.get({ plain: true }));
-console.log(reviews)
-    res.render('homepage', {
         reviews,
-    });
+      });
+
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
+
+
 });
+
+
 
 
 router.get('/login', (req, res) => {
@@ -62,7 +60,7 @@ router.get('/login', (req, res) => {
 router.get('/chat', (req, res) => {
   console.log(req.session.user_id);
   const chatUsername = req.session.user_id;
-  res.render('chat', {chatUsername});
+  res.render('chat', { chatUsername });
 })
 
 
