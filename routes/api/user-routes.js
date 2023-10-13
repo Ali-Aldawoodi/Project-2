@@ -18,8 +18,7 @@ router.get('/', async (req, res) => {
     res.status(200).json(userData);
   } catch (error) {
     console.error(error);
-    console.log("cuatro");
-    res.status(500).json(error);
+   res.status(500).json(error);
   }
 });
 
@@ -41,7 +40,6 @@ router.get('/:id', async (req, res) => {
     res.status(200).json(userData);
   } catch (error) {
     console.error(error);
-    console.log("cinco");
     res.status(500).json(error);
   }
 });
@@ -105,7 +103,6 @@ router.delete('/:id', withAuth, async (req, res) => {
     res.status(200).json({ message: 'User and associated Reviews have been deleted' });
   } catch (error) {
     console.error(error);
-    console.log("seis");
     res.status(500).json(error);
   }
 });

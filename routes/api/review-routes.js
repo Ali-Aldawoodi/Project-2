@@ -10,7 +10,6 @@ router.get('/', async (req, res) => {
     const reviewData = await Reviews.findAll({});
     res.status(200).json(reviewData);
   } catch (err) {
-    console.log("uno");
     res.status(500).json(err)
   }
 });
@@ -25,7 +24,6 @@ router.get('/:id', async (req, res) => {
     }
     res.status(200).json(reviewData);
   } catch (err) {
-    console.log("dos");
     res.status(500).json(err)
   }
 });
@@ -89,7 +87,6 @@ router.delete('/:id', withAuth, async (req, res) => {
     }
     res.status(200).json({ message: 'Category and associated reviews have been deleted' });
   } catch (err) {
-    console.log("tres");
     res.status(500).json(err);
   }
 });

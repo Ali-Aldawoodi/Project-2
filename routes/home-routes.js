@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.loggedIn) {
-    res.redirect('/profile');
+    res.redirect('/homepage');
     return;
   }
 
@@ -21,8 +21,9 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/chat', (req, res) => {
-  const chatUsername = session.username;
-  res.render('chat');
+  console.log(req.session.user_id);
+  const chatUsername = req.session.user_id;
+  res.render('chat', {chatUsername});
 })
 
 module.exports = router;
