@@ -2,7 +2,7 @@ const { Reviews } = require('../models');
 
 
 // ** NOTE ** Eventually we need to add the start value that the user will be able to input (1-5)
-const ReviewsData = [
+const reviewsData = [
   {
     id: 1,
     users_id: 1,
@@ -17,6 +17,6 @@ const ReviewsData = [
   }
 ];
 
-const seedreviews = () => Reviews.bulkCreate(ReviewsData);
+const seedreviews = () => Reviews.bulkCreate(reviewsData);
 
 module.exports = seedreviews;
