@@ -27,17 +27,18 @@ router.get('/', async (req, res) => {
   }
 });
 
+// localhost:3001/
 
-router.get('/', async (req, res) => {
+router.get('/reviews', async (req, res) => {
 
   try {
 
-    const ReviewData = await Reviews.findAll({
+    const reviewData = await Reviews.findAll({
     attributes: ['reviews_content']
     });
 
-    const reviews = ReviewData.map((reviews) => reviews.get({ plain: true }));
-
+    const reviews = reviewData.map((review) => review.get({ plain: true }));
+console.log(reviews)
     res.render('homepage', {
         reviews,
     });
@@ -46,6 +47,7 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
