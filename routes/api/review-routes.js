@@ -53,7 +53,7 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 
-// // PUT/Update one review
+// PUT/Update one review
 router.put('/:id', withAuth, async (req, res) => {
   try {
     // Find the review by its ID
@@ -75,8 +75,7 @@ router.put('/:id', withAuth, async (req, res) => {
   }
 });
 
-// ** COMING SOON **
-// // DEL/Delete one Review
+// DEL/Delete one Review
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const reviewData = await Review.destroy({
