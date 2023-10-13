@@ -87,3 +87,9 @@ nav {
     margin-left: 100px;
     background-color: white;
 }
+
+.tutor-card {
+    border: solid;
+    margin: 5%;
+    width: 30%;
+}
