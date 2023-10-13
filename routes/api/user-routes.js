@@ -18,8 +18,7 @@ router.get('/', async (req, res) => {
     res.status(200).json(userData);
   } catch (error) {
     console.error(error);
-    console.log("cuatro");
-    res.status(500).json(error);
+   res.status(500).json(error);
   }
 });
 
@@ -41,7 +40,6 @@ router.get('/:id', async (req, res) => {
     res.status(200).json(userData);
   } catch (error) {
     console.error(error);
-    console.log("cinco");
     res.status(500).json(error);
   }
 });
@@ -105,7 +103,6 @@ router.delete('/:id', withAuth, async (req, res) => {
     res.status(200).json({ message: 'User and associated Reviews have been deleted' });
   } catch (error) {
     console.error(error);
-    console.log("seis");
     res.status(500).json(error);
   }
 });
@@ -116,32 +113,28 @@ router.post('/login', async (req, res) => {
     const userData = await Users.findOne({ where: { username: req.body.username } });
 
     if (!userData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect username or password, please try again' });
-      return;
+      return res.status(400).json({ message: 'Incorrect username or password, please try again' });
     }
 
-    const validPassword = userData.checkPassword(req.body.password);
+    const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect username or password, please try again' });
-      return;
+      return res.status(400).json({ message: 'Incorrect username or password, please try again' });
     }
 
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.loggedIn = true;
-      
+
       res.json({ user: userData, message: 'You are now logged in!' });
+      res.redirect('/homepage');
     });
 
   } catch (err) {
     res.status(400).json(err);
   }
 });
+
 
 router.post('/logout', (req, res) => {
   console.log('log out route');
