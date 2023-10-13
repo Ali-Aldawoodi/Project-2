@@ -1,14 +1,32 @@
 const express = require('express');
 const session = require('express-session');
 const router = express.Router();
+const { Tutors } = require('../models')
 
 router.get('/homepage', (req, res) => {
   res.render('homepage')
 });
 
-router.get('/', (req, res) => {
-  res.render('homepage')
+
+router.get('/', async (req, res) => {
+ 
+  try {
+ 
+    const tutorData = await Tutors.findAll({
+    attributes: ['tutors_name']
+    });
+    
+    const tutors = tutorData.map((tutor) => tutor.get({ plain: true }));
+  
+    res.render('homepage', {
+        tutors,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
+
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
@@ -25,5 +43,7 @@ router.get('/chat', (req, res) => {
   const chatUsername = req.session.user_id;
   res.render('chat', {chatUsername});
 })
+
+
 
 module.exports = router;
