@@ -9,6 +9,7 @@ router.get('/', async (req, res) => {
   try {
     const reviewData = await Reviews.findAll({});
     res.status(200).json(reviewData);
+    res.render('reviews');
   } catch (err) {
     console.log("uno");
     res.status(500).json(err)
