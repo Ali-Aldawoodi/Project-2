@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
     res.status(200).json(userData);
   } catch (error) {
     console.error(error);
-   res.status(500).json(error);
+    res.status(500).json(error);
   }
 });
 
@@ -51,7 +51,7 @@ router.post('/', async (req, res) => {
       users_name: req.body.users_name,
       email: req.body.email,
       users_password: req.body.users_password,
-      });
+    });
     res.status(200).json(userData);
   } catch (error) {
     console.error(error);
@@ -109,16 +109,15 @@ router.delete('/:id', withAuth, async (req, res) => {
 
 // Added Login and Logout routes 
 router.post('/login', async (req, res) => {
-  console.log('trying')
   try {
     const userData = await Users.findOne({ where: { users_name: req.body.username } });
 
     if (!userData) {
       return res.status(400).json({ message: 'Incorrect username or password, please try again' });
     }
-    console.log(userData)
 
-    const validPassword = await userData.checkPassword(req.body.password);
+    const validPassword = userData.checkPassword(req.body.password);
+    console.log(validPassword);
 
     if (!validPassword) {
       return res.status(400).json({ message: 'Incorrect username or password, please try again' });
@@ -134,7 +133,7 @@ router.post('/login', async (req, res) => {
       res.redirect('/homepage');
     });
   } catch (err) {
-    res.status(400).json(err);
+    res.status(420).json(err);
   }
 });
 

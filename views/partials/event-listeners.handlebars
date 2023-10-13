@@ -1,10 +1,11 @@
 <script>
     (function () {
-        const loginFormHandler = async (event) => {};
-
+        console.log(document.querySelector("#login-form"))
+        const loginFormHandler = async (event) => {console.log("hello")};
+        const loginFormHandlers = () => {console.log("testies")}
         const signupFormHandler = async (event) => {};
 
-        document.querySelector('#login-form').addEventListener('submit', loginFormHandler);
+        document.querySelector('#login-form').addEventListener('submit', loginFormHandlers);
         document.querySelector('#signup-form').addEventListener('submit', signupFormHandler);
     })();
 </script>
