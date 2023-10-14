@@ -88,8 +88,20 @@ nav {
     background-color: white;
 }
 
-.tutor-card {
+.tutor-container {
     border: solid;
     margin: 5%;
     width: 30%;
+    height: 350px;
+    overflow: scroll;
+}
+
+.tutor-card {
+    border: solid;
+    margin: 5%;
+    
+}
+
+.tutor-name {
+    width: 100%;
 }
