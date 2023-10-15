@@ -1,7 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const router = express.Router();
-const { Tutors, Reviews } = require('../models')
+const { Tutors, Reviews, Users } = require('../models')
 
 router.get('/homepage', (req, res) => {
   res.render('homepage')
@@ -57,11 +57,35 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/chat', (req, res) => {
-  console.log(req.session.user_id);
-  const chatUsername = req.session.user_id;
-  res.render('chat', { chatUsername });
-})
+router.get('/chat', async (req, res) => {
+  const chatUsername = await Users.findByPk(req.session.user_id);
+  const loggedUser = chatUsername.dataValues.users_name
+  console.log(loggedUser);
+  res.render('chat', { loggedUser });
+});
+
+
+// req.session.user_id give me the id of the user that's logged in
+// With that id, I can return the name in users table
+// I need to acces the database with the user id
+
+// http://localhost:3001/api/users/2
+// {
+// 	"id": 2,
+// 	"users_name": "Trinh Nguyen",
+// 	"users_email": "trinh@m.com",
+// 	"users_password": "$2b$10$D2nhUI4CUu2mEzy6gV/ti.qn7gT77yOgE8J2N..Qb1UwCqxAaby/q",
+// 	"createdAt": "2023-10-13T03:49:01.000Z",
+// 	"updatedAt": "2023-10-13T03:49:01.000Z",
+// 	"reviews": [
+// 		{
+// 			"id": 2,
+// 			"users_id": 2,
+// 			"reviews_content": "testuser1 was literally the worst tutor datty ever!"
+// 		}
+// 	]
+// }
+
 
 
 
