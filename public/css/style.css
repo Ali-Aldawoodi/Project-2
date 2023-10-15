@@ -91,7 +91,16 @@ nav {
 
 .tutor-container {
     border: solid;
-    margin: 5%;
+    margin: 10%;
+    width: 30%;
+    height: 350px;
+    overflow: scroll;
+}
+
+.review-container {
+    display: inline-block;
+    border: solid;
+    margin: 10%;
     width: 30%;
     height: 350px;
     overflow: scroll;
@@ -105,4 +114,8 @@ nav {
 
 .tutor-name {
     width: 100%;
+}
+
+.card-container {
+    display: flex;
 }

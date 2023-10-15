@@ -3,12 +3,14 @@ const session = require('express-session');
 const router = express.Router();
 const { Tutors, Reviews, Users } = require('../models')
 
-router.get('/homepage', (req, res) => {
-  res.render('homepage')
-});
+
+// ** Do we need this?
+// router.get('/homepage', (req, res) => {
+//   res.render('homepage')
+// });
 
 
-router.get('/', async (req, res) => {
+router.get('/homepage', async (req, res) => {
 
   try {
 
@@ -43,8 +45,6 @@ router.get('/', async (req, res) => {
 
 
 });
-
-
 
 
 router.get('/login', (req, res) => {
