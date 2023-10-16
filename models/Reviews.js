@@ -10,27 +10,33 @@ class Reviews extends Model { }
 // set up fields and rules for Reviews model
 Reviews.init(
   {
-    // Define columns
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
       allowNull: false,
     },
-    users_id: { // user ID that the review is posted to
+    tutors_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'users',
+        model: 'tutors',
         key: 'id',
+      },
+    },
+    tutors_rating: {
+      type: DataTypes.INTEGER,
+      validate: {
+        min: 1, // Minimum rating value
+        max: 5, // Maximum rating value
       },
     },
     reviews_content: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    poster_id: { // user ID that posted the review
+    poster_id: {
       type: DataTypes.INTEGER,
-    }
+    },
   },
   {
     sequelize,

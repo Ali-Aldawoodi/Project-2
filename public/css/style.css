@@ -119,3 +119,8 @@ nav {
 .card-container {
     display: flex;
 }
+
+.review-card {
+    padding: 15px 0px 15px 5px;
+    border: 1px solid black;
+}

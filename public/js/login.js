@@ -1,4 +1,3 @@
-
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
@@ -19,7 +18,7 @@ const loginFormHandler = async (event) => {
       document.location.replace('/homepage');
     } else {
       alert(response.statusText);
-    }
+    }åç
   }
 };
 

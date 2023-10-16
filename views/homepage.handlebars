@@ -1,6 +1,7 @@
 <div class="card-container">
 <section class="tutor-container">
     <h1>Tutors</h1>
+    <h1>{{loggedUser}}</h1>
 
     {{#each tutors as |tutors|}}
     {{> tutor-details}}
@@ -10,6 +11,7 @@
 </section>
 <section class="review-container">
     <h2>Reviews</h2>
+    <h4>3.3 out of 5 from 70 reviews</h4> {{!-- this is just a place holder untilwe figure out how to do it --}}
         {{!-- listing the values of content (tutors rating, users name, and date entered will added at a later time)
         --}}
         {{#each reviews as |reviews|}}
