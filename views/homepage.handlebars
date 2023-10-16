@@ -1,22 +1,22 @@
 <div class="card-container">
-<section class="tutor-container">
-    <h1>Tutors</h1>
+    <section class="tutor-container">
+        <h1>Tutors</h1>
 
-    {{#each tutors as |tutors|}}
-    {{> tutor-details}}
-    {{/each}}
+        {{#each tutors as |tutors|}}
+        {{> tutor-details}}
+        {{/each}}
 
 
-</section>
-<section class="review-container">
-    <h2>Reviews</h2>
+    </section>
+    <section class="review-container">
+        <h2>Reviews</h2>
         {{!-- listing the values of content (tutors rating, users name, and date entered will added at a later time)
         --}}
         {{#each reviews as |reviews|}}
         {{> review-details}}
         {{/each}}
-    <script src="./js/login.js" ></script>
-    <script src="/js/tutor-reviews.js"></script>
-    <script src="/js/search.js"></script>
-</section>
+        <script src="./js/login.js"></script>
+        <script src="/js/tutor-reviews.js"></script>
+        <script src="/js/search.js"></script>
+    </section>
 </div>

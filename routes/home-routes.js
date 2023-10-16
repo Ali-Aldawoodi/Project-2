@@ -22,6 +22,7 @@ router.get('/homepage', async (req, res) => {
       const reviews = reviewData.map((review) => review.get({ plain: true }));
       res.render('homepage', {
         tutors,
+        loggedIn: req.session.loggedIn
         // if we uncomment below then it will render all reviews right away. Do we want that?
         // reviews,
       });
