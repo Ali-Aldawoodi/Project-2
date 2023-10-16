@@ -54,7 +54,7 @@ router.post('/', withAuth, async (req, res) => {
 router.put('/:id', withAuth, async (req, res) => {
   try {
     // Find the review by its ID
-    const reviewData = await Review.findByPk(req.params.id);
+    const reviewData = await Reviews.findByPk(req.params.id);
 
     // Check if the tag exists
     if (!reviewData) {
@@ -75,7 +75,7 @@ router.put('/:id', withAuth, async (req, res) => {
 // DEL/Delete one Review
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const reviewData = await Review.destroy({
+    const reviewData = await Reviews.destroy({
       where: {
         id: req.params.id,
       },

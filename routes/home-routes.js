@@ -3,13 +3,6 @@ const session = require('express-session');
 const router = express.Router();
 const { Tutors, Reviews, Users } = require('../models')
 
-
-// ** Do we need this?
-// router.get('/homepage', (req, res) => {
-//   res.render('homepage')
-// });
-
-
 router.get('/homepage', async (req, res) => {
 
   try {
@@ -62,6 +55,19 @@ router.get('/chat', async (req, res) => {
   const loggedUser = chatUsername.dataValues.users_name
   console.log(loggedUser);
   res.render('chat', { loggedUser });
+});
+
+router.get('/reviews', async (req, res) => {
+  try {
+    const reviews = await Reviews.findAll({
+      // Include necessary associations here, e.g., the user data
+      include: [{ model: Users }],
+    });
+    res.render('reviews', { reviews }); // Pass the reviews data to the template
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 
