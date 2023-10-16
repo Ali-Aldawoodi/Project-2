@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Tutors } = require('../../models');
+const { Tutors, Reviews } = require('../../models');
 const withAuth = require('../../utils/auth')
 
 // The `/api/Tutors` endpoint
@@ -8,6 +8,7 @@ const withAuth = require('../../utils/auth')
 router.get('/', async (req, res) => {
   try {
     const tutorData = await Tutors.findAll({});
+    console.log(tutorData)
     res.status(200).json(tutorData);
   } catch (err) {
     console.log("uno");
@@ -50,6 +51,8 @@ router.post('/', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+
 
 
 // // PUT/Update one tutors

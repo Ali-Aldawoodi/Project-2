@@ -22,9 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const responseData = await response.json();
       // Use a <p> element to display the response
       chatGPTAnswer.innerHTML = `<p>${responseData.choices[0].text}</p>`;
-      console.log(responseData.choices[0].text);
-
-
     } else {
       console.error('Error:', response.status);
       chatGPTAnswer.textContent = 'Error fetching data from the server';

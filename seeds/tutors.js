@@ -14,7 +14,7 @@ const tutorsData = [
         tutors_password: "password123"
     },
     {
-        tutors_name: "test1",
+        tutors_name: "Juan Delgado",
         tutors_email: "t1@a.com",
         tutors_ratings: 0,
         tutors_password: "password123"
