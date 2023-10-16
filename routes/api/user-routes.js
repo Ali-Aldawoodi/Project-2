@@ -142,11 +142,12 @@ router.post('/login', async (req, res) => {
 router.post('/logout', (req, res) => {
   console.log('log out route');
 
-  if (req.session.loggedIn) {
+  if (req.session.loggedIn = true) {
     req.session.destroy(() => {
       res.status(204).end();
     });
   } else {
+    console.log("You are not logged in!!!!!");
     res.status(404).end();
   }
 });
