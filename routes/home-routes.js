@@ -44,7 +44,6 @@ router.get('/homepage', async (req, res) => {
 //localhost:3001/api/reviews/:id
 router.get('/homepage/:id', async (req, res) => {
   const tutorBtn = req.params.id;
-
   try {
 
     const tutorData = await Tutors.findAll({

@@ -90,7 +90,7 @@ nav {
 }
 
 .tutor-container {
-    border: solid;
+    border: solid 6px;
     margin: 10%;
     width: 30%;
     height: 350px;
@@ -98,8 +98,7 @@ nav {
 }
 
 .review-container {
-    display: inline-block;
-    border: solid;
+    border: solid 6px;
     margin: 10%;
     width: 30%;
     height: 350px;
