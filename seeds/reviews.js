@@ -14,7 +14,13 @@ const reviewsData = [
     users_id: 2,
     reviews_content: "testuser1 was literally the worst tutor datty ever!",
     poster_id: 2,
-  }
+  },
+  {
+    id: 3,
+    users_id: 3,
+    reviews_content: "great!",
+    poster_id: 3,
+  },
 ];
 
 const seedreviews = () => Reviews.bulkCreate(reviewsData);

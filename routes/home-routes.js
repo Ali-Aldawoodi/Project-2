@@ -4,33 +4,26 @@ const router = express.Router();
 const { Tutors, Reviews, Users } = require('../models')
 
 
-// ** Do we need this?
-// router.get('/homepage', (req, res) => {
-//   res.render('homepage')
-// });
-
-
 router.get('/homepage', async (req, res) => {
-
   try {
 
     const tutorData = await Tutors.findAll({
-      attributes: ['tutors_name']
+      attributes: ['tutors_name', 'id']
     });
 
     const tutors = tutorData.map((tutor) => tutor.get({ plain: true }));
-
 
     try {
 
       const reviewData = await Reviews.findAll({
         attributes: ['reviews_content']
       });
-
+      console.log(tutors)
       const reviews = reviewData.map((review) => review.get({ plain: true }));
       res.render('homepage', {
         tutors,
-        reviews,
+        // if we uncomment below then it will render all reviews right away. Do we want that?
+        // reviews,
       });
 
     } catch (err) {
@@ -44,6 +37,34 @@ router.get('/homepage', async (req, res) => {
   }
 
 
+});
+
+//localhost:3001/:id
+//localhost:3001/api/reviews/:id
+router.get('/homepage/:id', async (req, res) => {
+  const tutorBtn = req.params.id;
+
+  try {
+
+    const tutorData = await Tutors.findAll({
+      attributes: ['tutors_name', 'id']
+    });
+
+    const tutors = tutorData.map((tutor) => tutor.get({ plain: true }));
+
+    const data = await Reviews.findAll({
+      where: {
+        id: tutorBtn,
+      }
+
+    })
+    const reviews = data.map((review) => review.get({ plain: true }));
+    console.log('Reviews:', reviews)
+    res.render('homepage', { tutors, reviews });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
 });
 
 
