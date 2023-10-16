@@ -86,4 +86,36 @@ nav {
     padding-left: 0px;
     margin-left: 100px;
     background-color: white;
+    height: 300px;
+}
+
+.tutor-container {
+    border: solid;
+    margin: 10%;
+    width: 30%;
+    height: 350px;
+    overflow: scroll;
+}
+
+.review-container {
+    display: inline-block;
+    border: solid;
+    margin: 10%;
+    width: 30%;
+    height: 350px;
+    overflow: scroll;
+}
+
+.tutor-card {
+    border: solid;
+    margin: 5%;
+    
+}
+
+.tutor-name {
+    width: 100%;
+}
+
+.card-container {
+    display: flex;
 }

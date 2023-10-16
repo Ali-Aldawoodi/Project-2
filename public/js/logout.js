@@ -5,12 +5,14 @@ const logout = async function () {
     });
   
     if (response.ok) {
-      document.location.replace('/login');
+      // document.location.replace('/login');
       console.log('loggin out too');
+       // Redirect to the login page
+    window.location.href = '/login';
     } else {
       alert(response.statusText);
     }
   }
   
-  document.querySelector('#logout').addEventListener('click', logout);
+  document.querySelector('#logout-btn').addEventListener('click', logout);
   
