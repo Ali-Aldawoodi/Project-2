@@ -90,7 +90,7 @@ nav {
 }
 
 .tutor-container {
-    border: solid;
+    border: solid 6px;
     margin: 10%;
     width: 30%;
     height: 350px;
@@ -98,8 +98,7 @@ nav {
 }
 
 .review-container {
-    display: inline-block;
-    border: solid;
+    border: solid 6px;
     margin: 10%;
     width: 30%;
     height: 350px;
@@ -107,20 +106,41 @@ nav {
 }
 
 .tutor-card {
-    border: solid;
     margin: 5%;
     
 }
 
 .tutor-name {
     width: 100%;
+    font-size: 20px;
 }
 
 .card-container {
     display: flex;
 }
 
-.review-card {
-    padding: 15px 0px 15px 5px;
-    border: 1px solid black;
+.no-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: #1b89bc;
+    text-decoration: none;
+    font-size: 100%;
 }
+
+.review-container {
+    background-color: white;
+}
+
+.review-content {
+    font-size: 30px;
+    color: rgb(85, 141, 141);
+}
+
+#review-header {
+    border-top: solid;
+    border-bottom: solid;
+    background-color:  rgb(120, 180, 180);
+}
+
