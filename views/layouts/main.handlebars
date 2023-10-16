@@ -12,14 +12,21 @@
     <nav>
         <h1>Tutor Datty</h1>
         <div id="rightnav">
-            <input onclick="window.location.href='http://localhost:3001/homepage';" class="btn rightnav" id="tutors" type="button" value="Tutors">
-            <input onclick="window.location.href='http://localhost:3001/reviews';" class="btn rightnav" id="reviews" type="button" value="Reviews">
-            <input onclick="window.location.href='http://localhost:3001/';" class="btn rightnav" id="make-review" type="button" value="Make a Review">
+            <input onclick="window.location.href='http://localhost:3001/homepage';" class="btn rightnav" id="tutors"
+                type="button" value="Tutors">
+            <input onclick="window.location.href='http://localhost:3001/reviews';" class="btn rightnav" id="reviews"
+                type="button" value="Reviews">
+            <input onclick="window.location.href='http://localhost:3001/';" class="btn rightnav" id="make-review"
+                type="button" value="Make a Review">
             <input class="rightnav" id="searchbar" type="text" placeholder="Search tutor here">
             <input class="btn rightnav" id="search-btn" type="button" value="Search">
-            <input onclick="window.location.href='http://localhost:3001/login';" class="btn rightnav" id="login-btn" type="button" value="Login">
+
             <input class="btn rightnav" id="logout-btn" type="button" value="Logout">
-            <input onclick="window.location.href='http://localhost:3001/chat';" class="btn rightnav chat-button" id="chat-btn" type="button" value="ChatGPT">
+            <input onclick="window.location.href='http://localhost:3001/login';" class="btn rightnav" id="login-btn" type="button" value="{{#if loggedUser}}{{loggedUser}}{{else}}Login{{/if}}">
+
+
+            <input onclick="window.location.href='http://localhost:3001/chat';" class="btn rightnav chat-button"
+                id="chat-btn" type="button" value="ChatGPT">
         </div>
     </nav>
 
