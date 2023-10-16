@@ -24,7 +24,7 @@ router.get('/homepage', async (req, res) => {
         tutors,
         loggedIn: req.session.loggedIn
         // if we uncomment below then it will render all reviews right away. Do we want that?
-        reviews,
+        // reviews,
       });
 
     } catch (err) {

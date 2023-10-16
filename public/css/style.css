@@ -136,6 +136,9 @@ nav {
 .review-content {
     font-size: 30px;
     color: rgb(85, 141, 141);
+    padding: 15px 0px 15px 5px;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
 }
 
 #review-header {
