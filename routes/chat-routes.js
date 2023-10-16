@@ -2,8 +2,6 @@ const express = require('express');
 const session = require('express-session');
 const router = express.Router();
 
-// console.log({chatUsername});
-
 // Define the route to handle POST requests to '/openai-proxy'
 router.post('/openai-proxy', async (req, res) => {
     try {

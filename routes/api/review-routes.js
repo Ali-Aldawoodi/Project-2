@@ -32,11 +32,11 @@ router.get('/:id', async (req, res) => {
 // POST/Create new review
 router.post('/', withAuth, async (req, res) => {
   try {
-    const { users_id, reviews_content, poster_id } = req.body; // Destructure the data from the request body
+    const { tutors_id, reviews_content, poster_id } = req.body; // Destructure the data from the request body
 
     // Create the review using Reviews model and the provided data
     const reviewData = await Reviews.create({
-      users_id,
+      tutors_id,
       reviews_content,
       poster_id,
     });
