@@ -16,8 +16,11 @@
             <input onclick="window.location.href='http://localhost:3001/login';" class="btn rightnav" id="login-btn"
                 type="button" value="{{#if loggedIn}}Homepage{{else}}Homepage{{/if}}">
 
+            {{#if loggedIn}}
             <input onclick="window.location.href='http://localhost:3001/reviews';" class="btn rightnav" id="make-review"
                 type="button" value="Make a Review">
+            {{else}}
+            {{/if}}
 
             <input class="rightnav" id="searchbar" type="text" placeholder="Search tutor here">
 
