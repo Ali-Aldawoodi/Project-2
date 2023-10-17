@@ -8,6 +8,7 @@ router.use('/chat', chatRoutes);
 router.use('/api', apiRoutes);
 
 router.use((req, res) => {
+  res.redirect('/login');
   res.send("<h1>Wrong Route!</h1>")
 });
 
