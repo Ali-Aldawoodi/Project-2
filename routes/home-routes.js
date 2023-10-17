@@ -88,7 +88,10 @@ router.get('/chat', async (req, res) => {
 router.get('/reviews', async (req, res) => {
   try {
     const reviewData = await Reviews.findAll({});
-    const last5Reviews = reviewData.slice(-5); // This selects the last 5 reviews
+    const reviews = reviewData.map((review) => review.get({ plain: true }));
+    const last5Reviews = reviews.slice(-5); // This selects the last 5 reviews
+
+    console.log(last5Reviews);
 
     res.status(200).render('reviews', { reviews: last5Reviews });
   } catch (err) {
