@@ -13,11 +13,11 @@
         <h1>Tutor Datty</h1>
         <div id="rightnav">
 
-            <input onclick="window.location.href = window.location.href + '/login';" class="btn rightnav" id="login-btn"
+            <input onclick="window.location.href = window.location.origin + '/login';" class="btn rightnav" id="login-btn"
                 type="button" value="{{#if loggedIn}}Homepage{{else}}Homepage{{/if}}">
 
             {{#if loggedIn}}
-            <input onclick="window.location.href = window.location.href + '/reviews';" class="btn rightnav" id="make-review"
+            <input onclick="window.location.href = window.location.origin + '/reviews';" class="btn rightnav" id="make-review"
                 type="button" value="Make a Review">
             {{else}}
             {{/if}}
@@ -27,7 +27,7 @@
             <input class="btn rightnav" id="logout-btn" type="button" value="Logout">
 
             {{#if loggedIn}}
-            <input onclick="window.location.href = window.location.href + '/chat';" class="btn rightnav chat-button"
+            <input onclick="window.location.href = window.location.origin + '/chat';" class="btn rightnav chat-button"
                 id="chat-btn" type="button" value="ChatGPT">
             {{else}}
             {{/if}}
