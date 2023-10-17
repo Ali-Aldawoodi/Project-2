@@ -1,7 +1,7 @@
 <h1>Recent Reviews</h1>
 <div>
 
-    {{#each reviews}}
+    {{#each reviews.slice(5)}}
     {{> review-details}}
     <p>Created by {{users.name}} on {{format_date date_created}}</p>
     {{/each}}
@@ -13,9 +13,9 @@
 <label for="tutors">Choose your tutor</label>
 <input type="range" name="tutors" id="tutors">
 
-<label for="review">Make a review</label>
-<input type="text" name="review" id="review">
-
 <label for="rating">Rating 1-5</label>
 <input type="range" name="rating" id="rating">
+
+<label for="review">Make a review</label>
+<input type="text" name="review" id="review">
 </form>
