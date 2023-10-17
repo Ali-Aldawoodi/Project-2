@@ -62,7 +62,7 @@ console.log("Matched", JSON.stringify(matchedTutor))
     const averageRating = numberOfReviews > 0 ? totalRating / numberOfReviews : 0;
     reviews.rating = averageRating;
     reviews.numberOfReviews = numberOfReviews;
-    es.render('homepage', { tutors, reviews });
+    res.render('homepage', { tutors, reviews });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
