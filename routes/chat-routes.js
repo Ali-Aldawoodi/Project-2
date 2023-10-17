@@ -16,7 +16,7 @@ router.post('/openai-proxy', async (req, res) => {
             body: JSON.stringify({
                 model: "text-ada-001",
                 prompt: JSON.stringify({ query: req.body.userQuery }),
-                max_tokens: 7,
+                max_tokens: 50,
             }),
         });
 
