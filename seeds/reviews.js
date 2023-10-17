@@ -75,6 +75,12 @@ const reviewsData = [
     reviews_content: "test6",
     poster_id: 2,
   },
+  {
+    tutors_id: 153,
+    tutors_rating: 5,
+    reviews_content: "My tutor was amazing!",
+    poster_id: 2,
+  },
 ];
 
 const seedreviews = () => Reviews.bulkCreate(reviewsData);
