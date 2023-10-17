@@ -1,19 +1,20 @@
 <h1>Make a new Review</h1>
 <form action="/api/reviews" method="post">
     <label for="tutors">Choose your tutor</label>
-    <input list="browse">
+    <input list="browse" name="tutor_id">
     <datalist id="browse">
         {{#each tutors}}
-        <option value="{{tutors_name}}">
+        <option value="{{tutors_name}}" data-tutor-id="{{tutors_id}}">
             {{/each}}
     </datalist>
 
-        <label for="rating">Rating 1-5</label>
-        <input type="range" name="rating" id="rating" min="1" max="5">
-        <p id="rating-text"></p>
+<label for="rating">Rating 1-5</label>
+<input type="range" name="rating" id="rating" min="1" max="5">
 
-        <label for="review">Make a review</label>
-        <input type="text" name="review" id="review">
+
+<label for="review">Make a review</label>
+<input type="text" name="reviews_content" id="review">
+<input class="btn" type="submit" id="reviewButton" value="Submit">
 </form>
 
 <h2>Recent Reviews</h2>
