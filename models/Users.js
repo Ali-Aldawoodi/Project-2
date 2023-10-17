@@ -21,11 +21,11 @@ Users.init(
       allowNull: false,
       unique: true,
     },
-    users_email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-    },
+    // users_email: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    //   unique: true,
+    // },
     users_password: {
       type: DataTypes.STRING,
       allowNull: false,

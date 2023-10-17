@@ -44,13 +44,16 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// localhost:3001/api/users/register
 // POST/Create new User
-router.post('/', async (req, res) => {
+
+router.post('/register', async (req, res) => {
   try {
+    console.log(req.body)
     const userData = await Users.create({
-      users_name: req.body.users_name,
-      email: req.body.email,
-      users_password: req.body.users_password,
+      users_name: req.body.username,
+      // email: req.body.email,
+      users_password: req.body.password,
     });
     res.status(200).json(userData);
   } catch (error) {
