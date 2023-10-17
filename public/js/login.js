@@ -29,7 +29,7 @@ const signupFormHandler = async (event) => {
   const password = document.querySelector('#password-signup').value.trim();
 
   if (username && password) {
-    const response = await fetch('/homepage', {
+    const response = await fetch('/api/users/register', {
       method: 'POST',
       body: JSON.stringify({ username, password }),
       headers: { 'Content-Type': 'application/json' },
@@ -45,3 +45,4 @@ const signupFormHandler = async (event) => {
 
 // There is an error in the console after you click the button login on the homepage, if I comment this line out the error goes away, but the button no longer works. For some reason on all the other forms an event listener is not required, but for the login form it is required.
 document.querySelector('#login-form').addEventListener('click', loginFormHandler);
+document.querySelector('#signup-form').addEventListener('click', signupFormHandler);
