@@ -1,18 +1,19 @@
 const makeReviewFormHandler = async (event) => {
     event.preventDefault();
 
-    const username = document.querySelector('#username-signup').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();
+    const tutorName = document.querySelector('#tutors').value.trim();
+    const tutorRating = document.querySelector('#rating').value.trim();
+    const ReviewContent = document.querySelector('#review').value.trim();
 
-    if (username && password) {
-        const response = await fetch('/homepage', {
+    if (tutorName && tutorRating && ReviewContent) {
+        const response = await fetch('/reviews', {
             method: 'POST',
-            body: JSON.stringify({ username, password }),
+            body: JSON.stringify({ tutorName, tutorRating, ReviewContent }),
             headers: { 'Content-Type': 'application/json' },
         });
 
         if (response.ok) {
-            document.location.replace('/homepage');
+            document.location.replace('/reviews');
         } else {
             alert(response.statusText);
         }
