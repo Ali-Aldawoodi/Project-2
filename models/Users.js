@@ -36,7 +36,7 @@ Users.init(
     hooks: {
       beforeCreate: async (newUserData) => {
         newUserData.users_password = await bcrypt.hash(newUserData.users_password, 10);
-        console.log(newUserData);
+        // console.log(newUserData);
         return newUserData;
       },
       beforeUpdate: async (updatedUserData) => {

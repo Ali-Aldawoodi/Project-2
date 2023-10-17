@@ -8,10 +8,9 @@ const withAuth = require('../../utils/auth')
 router.get('/', async (req, res) => {
   try {
     const tutorData = await Tutors.findAll({});
-    console.log(tutorData)
+    // console.log(tutorData)
     res.status(200).json(tutorData);
   } catch (err) {
-    console.log("uno");
     res.status(500).json(err)
   }
 });
@@ -26,7 +25,6 @@ router.get('/:id', async (req, res) => {
     }
     res.status(200).json(tutorData);
   } catch (err) {
-    console.log("dos");
     res.status(500).json(err)
   }
 });
@@ -35,11 +33,11 @@ router.get('/:id', async (req, res) => {
 // POST/Create new tutors
 router.post('/', withAuth, async (req, res) => {
   try {
-    const { users_id, Tutors_content, poster_id } = req.body; // Destructure the data from the request body
+    const { tutors_id, Tutors_content, poster_id } = req.body; // Destructure the data from the request body
 
     // Create the tutors using Tutors model and the provided data
     const tutorData = await Tutors.create({
-      users_id,
+      tutors_id,
       Tutors_content,
       poster_id,
     });
@@ -92,7 +90,6 @@ router.delete('/:id', withAuth, async (req, res) => {
     }
     res.status(200).json({ message: 'Category and associated Tutors have been deleted' });
   } catch (err) {
-    console.log("tres");
     res.status(500).json(err);
   }
 });
