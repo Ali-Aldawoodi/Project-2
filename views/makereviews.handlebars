@@ -1,6 +1,21 @@
+<h1>Recent Reviews</h1>
+<div>
+
+    {{#each reviews}}
+    {{> review-details}}
+    <p>Created by {{users.name}} on {{format_date date_created}}</p>
+    {{/each}}
+</div>
+
+<h2>Make a new Review</h2>
 <form action="/api/reviews" method="post">
+
 <label for="tutors">Choose your tutor</label>
 <input type="range" name="tutors" id="tutors">
+
 <label for="review">Make a review</label>
 <input type="text" name="review" id="review">
+
+<label for="rating">Rating 1-5</label>
+<input type="range" name="rating" id="rating">
 </form>
