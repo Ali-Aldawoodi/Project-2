@@ -84,13 +84,11 @@ router.get('/chat', async (req, res) => {
 
 router.get('/reviews', async (req, res) => {
   try {
-    const reviews = await Reviews.findAll({
-      // Include necessary associations here, e.g., the user data
-      include: [{ model: Users }],
-    });
-    res.render('reviews', { reviews }); // Pass the reviews data to the template
+    const reviewData = await Reviews.findAll({});
+    const last5Reviews = reviewData.slice(-5); // This selects the last 5 reviews
+
+    res.status(200).render('reviews', { reviews: last5Reviews });
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });
