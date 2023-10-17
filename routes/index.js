@@ -1,11 +1,13 @@
 const router = require('express').Router();
+const apiRoutes = require('./api');
 const homeRoutes = require('./home-routes');
 const chatRoutes = require('./chat-routes');
-const apiRoutes = require('./api');
+
 
 router.use('/', homeRoutes);
-router.use('/chat', chatRoutes);
 router.use('/api', apiRoutes);
+router.use('/chat', chatRoutes);
+
 
 router.use((req, res) => {
   res.redirect('/login');
