@@ -99,29 +99,4 @@ router.get('/reviews', async (req, res) => {
   }
 });
 
-
-// req.session.user_id give me the id of the user that's logged in
-// With that id, I can return the name in users table
-// I need to acces the database with the user id
-
-// http://localhost:3001/api/users/2
-// {
-// 	"id": 2,
-// 	"users_name": "Trinh Nguyen",
-// 	"users_email": "trinh@m.com",
-// 	"users_password": "$2b$10$D2nhUI4CUu2mEzy6gV/ti.qn7gT77yOgE8J2N..Qb1UwCqxAaby/q",
-// 	"createdAt": "2023-10-13T03:49:01.000Z",
-// 	"updatedAt": "2023-10-13T03:49:01.000Z",
-// 	"reviews": [
-// 		{
-// 			"id": 2,
-// 			"users_id": 2,
-// 			"reviews_content": "testuser1 was literally the worst tutor datty ever!"
-// 		}
-// 	]
-// }
-
-
-
-
 module.exports = router;
