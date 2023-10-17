@@ -1,7 +1,7 @@
 <h1>Recent Reviews</h1>
 <div>
 
-    {{#each reviews.slice(5)}}
+    {{#each reviews}}
     {{> review-details}}
     <p>Created by {{users.name}} on {{format_date date_created}}</p>
     {{/each}}
