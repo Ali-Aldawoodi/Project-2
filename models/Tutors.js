@@ -22,19 +22,19 @@ Tutors.init(
             allowNull: false,
             unique: true,
         },
-        tutors_email: {
-            type:DataTypes.STRING,
-            unique: true,
-        },
-        tutors_ratings: {
+        // tutors_email: {
+        //     type:DataTypes.STRING,
+        //     unique: true,
+        // },
+        tutors_avgRating: {
             type:DataTypes.INTEGER,
             allowNull:false,
         },
-        tutors_password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            // add bitcryption here
-        }
+        // tutors_password: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        //     // add bitcryption here
+        // }
     },
     {
         sequelize,

@@ -3,7 +3,6 @@ const session = require('express-session');
 const router = express.Router();
 const { Tutors, Reviews, Users } = require('../models')
 
-
 router.get('/homepage', async (req, res) => {
   try {
 
@@ -18,10 +17,11 @@ router.get('/homepage', async (req, res) => {
       const reviewData = await Reviews.findAll({
         attributes: ['reviews_content']
       });
-      console.log(tutors)
+      // console.log(tutors)
       const reviews = reviewData.map((review) => review.get({ plain: true }));
       res.render('homepage', {
         tutors,
+        loggedIn: req.session.loggedIn
         // if we uncomment below then it will render all reviews right away. Do we want that?
         // reviews,
       });
@@ -43,7 +43,6 @@ router.get('/homepage', async (req, res) => {
 //localhost:3001/api/reviews/:id
 router.get('/homepage/:id', async (req, res) => {
   const tutorBtn = req.params.id;
-
   try {
 
     const tutorData = await Tutors.findAll({
@@ -59,7 +58,7 @@ router.get('/homepage/:id', async (req, res) => {
 
     })
     const reviews = data.map((review) => review.get({ plain: true }));
-    console.log('Reviews:', reviews)
+    // console.log('Reviews:', reviews)
     res.render('homepage', { tutors, reviews });
   } catch (err) {
     console.error(err);
@@ -74,15 +73,26 @@ router.get('/login', (req, res) => {
     res.redirect('/homepage');
     return;
   }
-
   res.render('login');
 });
 
 router.get('/chat', async (req, res) => {
   const chatUsername = await Users.findByPk(req.session.user_id);
   const loggedUser = chatUsername.dataValues.users_name
-  console.log(loggedUser);
   res.render('chat', { loggedUser });
+});
+
+router.get('/reviews', async (req, res) => {
+  try {
+    const reviews = await Reviews.findAll({
+      // Include necessary associations here, e.g., the user data
+      include: [{ model: Users }],
+    });
+    res.render('reviews', { reviews }); // Pass the reviews data to the template
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 

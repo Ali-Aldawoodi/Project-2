@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: Reviews,
-          attributes: ['id', 'users_id', 'reviews_content'],
+          attributes: ['id', 'tutors_id', 'reviews_content'],
         },
       ],
     });
@@ -29,7 +29,7 @@ router.get('/:id', async (req, res) => {
       include: [
         {
           model: Reviews,
-          attributes: ['id', 'users_id', 'reviews_content'],
+          attributes: ['id', 'tutors_id', 'reviews_content'],
         },
       ],
     });
@@ -117,7 +117,7 @@ router.post('/login', async (req, res) => {
     }
 
     const validPassword = userData.checkPassword(req.body.password);
-    console.log(validPassword);
+    // console.log(validPassword);
 
     if (!validPassword) {
       return res.status(400).json({ message: 'Incorrect username or password, please try again' });
@@ -137,16 +137,15 @@ router.post('/login', async (req, res) => {
   }
 });
 
-
-
 router.post('/logout', (req, res) => {
   console.log('log out route');
 
-  if (req.session.loggedIn) {
+  if (req.session.loggedIn = true) {
     req.session.destroy(() => {
       res.status(204).end();
     });
   } else {
+    console.log("You are not logged in!!!!!");
     res.status(404).end();
   }
 });
