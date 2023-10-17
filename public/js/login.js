@@ -18,7 +18,7 @@ const loginFormHandler = async (event) => {
       document.location.replace('/homepage');
     } else {
       alert(response.statusText);
-    }åç
+    }
   }
 };
 
