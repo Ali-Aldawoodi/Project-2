@@ -1,15 +1,15 @@
 <h1>Make a new Review</h1>
 <form action="/api/reviews" method="post">
 
-<label for="tutors">Choose your tutor</label>
-<select name="tutors" id="tutors">
+    <label for="tutors">Choose your tutor</label>
+    <select name="tutors" id="tutors">
 
-<label for="rating">Rating 1-5</label>
-<input type="range" name="rating" id="rating" min="1" max="5">
+        <label for="rating">Rating 1-5</label>
+        <input type="range" name="rating" id="rating" min="1" max="5">
+        <p id="rating-text"></p>
 
-
-<label for="review">Make a review</label>
-<input type="text" name="review" id="review">
+        <label for="review">Make a review</label>
+        <input type="text" name="review" id="review">
 </form>
 
 <h2>Recent Reviews</h2>
@@ -19,4 +19,6 @@
     {{> review-details}}
     <p>Created by {{users.name}} on {{format_date date_created}}</p>
     {{/each}}
+
+    <script src="/js/script.js"></script>
 </div>
