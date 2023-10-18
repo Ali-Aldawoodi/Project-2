@@ -1,4 +1,3 @@
-
   # Tutor Ratings
 
   ## Description
@@ -27,11 +26,27 @@
   ## Contributing
   Please fork off repo, create a new branch, and push changes to the new branch on the repo. Await merge request completion, you will be notified when you can pull main, and close your local branch.
 
+  -Ali, Broch, Richard, Luke, and Ricardo all as Devs.
+  - Kirtley and George helped guide and advise.
+
   ## Tests
   Coming Soon
 
+  # Screenshot
+  ![Login](<Screenshot 2023-10-17 202043.png>)
+  ![Homepage](<Screenshot 2023-10-17 202114.png>)
+  ![Review page](<Screenshot 2023-10-17 202134.png>)
+  ![Chat Page](<Screenshot 2023-10-17 202143.png>)
+
+
   ## Questions
   If you have any questions, feel free to reach out via email or GitHub.
+
+  # Links
+  Github: https://github.com/Ali-Aldawoodi/Tutor-Ratings
+  Heroku: https://tutor-ratings-723289cce979.herokuapp.com/login 
+  Video:  https://drive.google.com/file/d/1jJeRHTCSIHnNh_23nac-E1DCrApR3GpQ/view
+
 
   ## License
   This Project is licenced under MIT License. 
